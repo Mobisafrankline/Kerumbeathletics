@@ -26,11 +26,12 @@ export default function Donate() {
           <ul className="space-y-3">
             {DONATION_TIERS.map((t) => (
               <li
-                key={t.amount}
+                key={t.amountKES}
                 className="text-white/80 text-sm flex items-center gap-2 border-b border-white/8 pb-3"
               >
-                <span className="text-base">🥾</span>
-                <strong className="text-white">{t.amount}</strong>
+                <span className="text-base">{t.icon}</span>
+                <strong className="text-white">{t.amountKES}</strong>
+                <span>({t.amountUSD})</span>
                 <span>—</span>
                 <span>{t.description}</span>
               </li>

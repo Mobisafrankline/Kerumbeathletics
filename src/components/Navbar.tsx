@@ -2,121 +2,145 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/data/siteData";
 import type { NavLink } from "@/types";
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [activeId, setActiveId]   = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      // Active section tracking
-      const sections = document.querySelectorAll("section[id]");
-      let current = "home";
-      sections.forEach((sec) => {
-        if (window.scrollY >= (sec as HTMLElement).offsetTop - 120) {
-          current = sec.id;
-        }
-      });
-      setActiveId(current);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  // Close mobile drawer on route change
+  useEffect(() => {
     setMenuOpen(false);
-    const id = href.replace("#", "");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  }, [pathname]);
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
-        scrolled ? "shadow-lg" : "shadow-sm"
+      className={`sticky top-0 z-50 bg-white transition-all duration-300 ${
+        scrolled ? "shadow-md py-2.5" : "shadow-sm py-3.5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand */}
-        <a
-          href="#home"
-          onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
-          className="flex items-center gap-3 group"
-        >
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border border-gray-200 shadow-sm flex-shrink-0 bg-white">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-gray-200 shadow-sm flex-shrink-0 bg-white">
             <Image
               src="/images/logo.png"
-              alt="Kerumbe Athletics Logo"
+              alt="Kerumbe Athletics Sports Club Logo"
               fill
               className="object-contain p-1"
               priority
             />
           </div>
           <div>
-            <span className="block font-[var(--font-montserrat)] font-black text-[1.1rem] text-[#0D0D0D] tracking-wide leading-none group-hover:text-[#E8001C] transition-colors">
+            <span className="block font-[var(--font-montserrat)] font-black text-lg sm:text-xl text-[#0D0D0D] tracking-tight leading-none group-hover:text-[#E8001C] transition-colors">
               KERUMBE
             </span>
-            <span className="block font-[var(--font-montserrat)] font-semibold text-[0.6rem] text-[#E8001C] tracking-[2px] uppercase">
+            <span className="block font-[var(--font-montserrat)] font-semibold text-[0.62rem] text-[#E8001C] tracking-[2px] uppercase">
               Athletics Sports Club
             </span>
           </div>
-        </a>
+        </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-7">
+        {/* Desktop Nav Links */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {NAV_LINKS.map((link: NavLink) => {
-            const id = link.href.replace("#", "");
-            const isActive = activeId === id;
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
             return (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className={`relative font-[var(--font-montserrat)] text-[0.78rem] font-semibold uppercase tracking-wide pb-1 transition-colors duration-200
+                className={`relative font-[var(--font-montserrat)] text-[0.8rem] font-bold uppercase tracking-wider py-1 transition-colors duration-200
                   after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[#E8001C] after:transition-all after:duration-200
-                  ${isActive
-                    ? "text-[#E8001C] after:w-full"
-                    : "text-[#1A1A1A] hover:text-[#E8001C] after:w-0 hover:after:w-full"
+                  ${
+                    isActive
+                      ? "text-[#E8001C] after:w-full"
+                      : "text-[#1A1A1A] hover:text-[#E8001C] after:w-0 hover:after:w-full"
                   }`}
               >
                 {link.label}
-              </a>
+              </Link>
             );
           })}
         </nav>
 
-        {/* Hamburger */}
+        {/* Action Button */}
+        <div className="hidden sm:flex items-center gap-3">
+          <Link
+            href="/donate"
+            className="bg-[#E8001C] text-white px-5 py-2.5 rounded font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-wider hover:bg-[#B30016] transition-all shadow-[0_4px_12px_rgba(232,0,28,0.25)] hover:shadow-none"
+          >
+            ❤ Donate
+          </Link>
+        </div>
+
+        {/* Hamburger Toggle */}
         <button
-          aria-label="Toggle menu"
-          className="md:hidden flex flex-col gap-1.5 p-1"
+          aria-label="Toggle navigation menu"
+          className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 p-1 rounded hover:bg-gray-100 transition-colors"
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <span className={`block w-6 h-0.5 bg-[#1A1A1A] rounded transition-transform duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#1A1A1A] rounded transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#1A1A1A] rounded transition-transform duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`block w-6 h-0.5 bg-[#1A1A1A] rounded transition-transform duration-200 ${
+              menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 bg-[#1A1A1A] rounded transition-opacity duration-200 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 bg-[#1A1A1A] rounded transition-transform duration-200 ${
+              menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg px-6 py-4 flex flex-col gap-4">
-          {NAV_LINKS.map((link: NavLink) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-              className="font-[var(--font-montserrat)] font-semibold text-sm uppercase tracking-wide text-[#1A1A1A] hover:text-[#E8001C] transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl px-6 py-6 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
+          {NAV_LINKS.map((link: NavLink) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`font-[var(--font-montserrat)] font-bold text-sm uppercase tracking-wider py-1 border-b border-gray-50 flex items-center justify-between ${
+                  isActive ? "text-[#E8001C]" : "text-[#1A1A1A] hover:text-[#E8001C]"
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && <span className="text-[#E8001C] text-xs">●</span>}
+              </Link>
+            );
+          })}
+          <Link
+            href="/donate"
+            className="w-full text-center mt-3 bg-[#E8001C] text-white py-3 rounded font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-wider hover:bg-[#B30016] transition-colors"
+          >
+            ❤ Donate to Kerumbe
+          </Link>
         </div>
       )}
     </header>
   );
 }
-

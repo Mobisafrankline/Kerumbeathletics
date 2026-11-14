@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { HERO_SLIDES, HERO_STATS } from "@/data/siteData";
 
 export default function Hero() {
@@ -61,18 +61,18 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-14">
-            <a
-              href="#programs"
-              className="bg-[#E8001C] text-white font-[var(--font-montserrat)] font-bold px-7 py-3 rounded text-sm tracking-wide hover:bg-[#B30016] transition-colors"
+            <Link
+              href="/what-we-do"
+              className="bg-[#E8001C] text-white font-[var(--font-montserrat)] font-bold px-7 py-3 rounded text-sm tracking-wide hover:bg-[#B30016] transition-colors shadow-lg"
             >
-              Our Programs
-            </a>
-            <a
-              href="#donate"
+              Our Programs & Pillars →
+            </Link>
+            <Link
+              href="/donate"
               className="border-2 border-white/70 text-white font-[var(--font-montserrat)] font-bold px-7 py-3 rounded text-sm tracking-wide hover:bg-white/15 hover:border-white transition-colors"
             >
-              Support a Runner
-            </a>
+              Ways to Give
+            </Link>
           </div>
 
           {/* Stats */}
