@@ -1,67 +1,81 @@
-"use client";
-
+import Link from "next/link";
 import { PROGRAMS } from "@/data/siteData";
-import type { Program } from "@/types";
-import { useReveal } from "@/hooks/useReveal";
 
 export default function Programs() {
-  const ref = useReveal();
-
   return (
-    <section id="programs" className="py-24 bg-[#1A1A1A]">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <SectionLabel light>What We Do</SectionLabel>
-          <h2 className="font-[var(--font-montserrat)] font-bold text-3xl lg:text-4xl text-white leading-tight">
-            Comprehensive Support for{" "}
-            <span className="text-[#E8001C]">Every Athlete</span>
+    <section className="py-20 bg-white">
+      <div className="container-custom">
+
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <p className="section-label">Our Programs</p>
+          <h2 className="section-title mb-4">
+            Comprehensive Support for <span className="text-red">Every Athlete</span>
           </h2>
-          <p className="text-white/60 max-w-xl mx-auto mt-4 text-base leading-relaxed">
+          <p className="text-muted text-base leading-relaxed">
             We don&apos;t just train runners — we build futures. Our programs cover every
             dimension of an athlete&apos;s life.
           </p>
         </div>
 
-        <div
-          ref={ref as React.RefObject<HTMLDivElement>}
-          className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {PROGRAMS.map((prog: Program) => (
-            <ProgramCard key={prog.title} program={prog} />
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {PROGRAMS.map((program) => (
+            <div
+              key={program.id}
+              className={`card p-7 group border border-gray-100 ${program.featured
+                  ? "ring-2 ring-red relative overflow-hidden"
+                  : ""
+                }`}
+            >
+              {program.featured && (
+                <div className="absolute top-4 right-4 bg-red text-white text-[10px] font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                  Featured
+                </div>
+              )}
+
+              <div className="w-12 h-12 bg-red/10 rounded-xl flex items-center justify-center font-heading font-black text-red text-sm mb-5 group-hover:bg-red group-hover:text-white transition-all duration-200">
+                {program.icon}
+              </div>
+
+              <h3 className="font-heading font-black text-lg text-charcoal-dark mb-3 leading-tight">
+                {program.title}
+              </h3>
+
+              <p className="text-muted text-sm leading-relaxed mb-4">
+                {program.summary}
+              </p>
+
+              {program.highlights && (
+                <ul className="space-y-2">
+                  {program.highlights.slice(0, 3).map((h, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-charcoal">
+                      <span className="mt-1 w-1.5 h-1.5 rounded-full bg-red flex-shrink-0" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div className="mt-5 pt-4 border-t border-gray-100">
+                <Link
+                  href="/what-we-do"
+                  className="text-red font-heading font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1.5 transition-all duration-150"
+                >
+                  <span>Learn More</span>
+                  <span className="text-sm leading-none">&rarr;</span>
+                </Link>
+              </div>
+            </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Link href="/what-we-do" className="btn-red mx-auto">
+            View All Programs
+          </Link>
         </div>
       </div>
     </section>
   );
 }
-
-function ProgramCard({ program }: { program: Program }) {
-  const featured = program.featured;
-  return (
-    <div
-      className={`rounded-lg p-7 border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_rgba(232,0,28,0.18)] cursor-default
-        ${featured
-          ? "bg-[#E8001C] border-[#E8001C]"
-          : "bg-[#2B2B2B] border-white/5 hover:border-[#E8001C]"
-        }`}
-    >
-      <div className="text-4xl mb-4">{program.icon}</div>
-      <h3 className="font-[var(--font-montserrat)] font-bold text-lg text-white mb-2">
-        {program.title}
-      </h3>
-      <p className={`text-sm leading-relaxed ${featured ? "text-white/90" : "text-[#AAAAAA]"}`}>
-        {program.description}
-      </p>
-    </div>
-  );
-}
-
-function SectionLabel({ children, light }: { children: React.ReactNode; light?: boolean }) {
-  return (
-    <span className={`inline-flex items-center gap-3 font-[var(--font-montserrat)] font-bold text-[0.72rem] tracking-[3px] uppercase mb-3 ${light ? "text-[#FF1A35]" : "text-[#E8001C]"}`}>
-      <span className={`w-5 h-0.5 inline-block flex-shrink-0 ${light ? "bg-[#FF1A35]" : "bg-[#E8001C]"}`} />
-      {children}
-    </span>
-  );
-}
-

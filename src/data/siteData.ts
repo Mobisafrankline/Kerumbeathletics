@@ -14,14 +14,14 @@ import type {
 } from "@/types";
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Home",             href: "/" },
-  { label: "About Us",         href: "/about" },
-  { label: "What We Do",       href: "/what-we-do" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "What We Do", href: "/what-we-do" },
   { label: "Where We Operate", href: "/where-we-operate" },
   { label: "Stories & Impact", href: "/stories" },
-  { label: "Gallery",          href: "/gallery" },
-  { label: "Ways to Give",     href: "/donate" },
-  { label: "Contact",          href: "/contact" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Ways to Give", href: "/donate" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const HERO_SLIDES: string[] = [
@@ -54,16 +54,16 @@ export const HERO_STATS: Stat[] = [
 ];
 
 export const TRUST_ITEMS: string[] = [
-  "🏅 Belgut Marathon Finishers",
-  "🏃 Kericho Cross Country Competitors",
-  "🌍 Rural-to-National Athletics Pipeline",
-  "📚 Academic Education + Sports Mentorship",
+  "Belgut Marathon Finishers",
+  "Kericho Cross Country Competitors",
+  "Rural-to-National Athletics Pipeline",
+  "Academic Education & Sports Mentorship",
 ];
 
 export const PROGRAMS: Program[] = [
   {
     id: "gear",
-    icon: "👟",
+    icon: "01",
     title: "Equipment & Running Gear",
     summary:
       "Supplying professional running shoes, track spikes, club tracksuits, and racing vests.",
@@ -78,12 +78,12 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: "coaching",
-    icon: "🏋️",
+    icon: "02",
     title: "Structured Training & Elite Coaching",
     summary:
       "Scientifically structured training schedules tailored for middle-distance and cross-country disciplines.",
     description:
-      "Talent without coaching leads to burnout. Our coaches establish age-appropriate training programs focusing on aerobic endurance, pacing, pacing strategies, running mechanics, and mental fortitude. We hold weekly structured sessions that accommodate school timetables so athletics never interferes with classes.",
+      "Talent without coaching leads to burnout. Our coaches establish age-appropriate training programs focusing on aerobic endurance, pacing strategies, running mechanics, and mental fortitude. We hold weekly structured sessions that accommodate school timetables so athletics never interferes with classes.",
     highlights: [
       "High-altitude endurance conditioning in Rift Valley hills",
       "Technique, cadence, and running posture coaching",
@@ -94,7 +94,7 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: "academic",
-    icon: "📚",
+    icon: "03",
     title: "Academic Sponsorship & Education",
     summary:
       "Guaranteeing that every runner stays in school with books, fees, and academic guidance.",
@@ -109,7 +109,7 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: "mentorship",
-    icon: "🧠",
+    icon: "04",
     title: "Youth Mentorship & Character Building",
     summary:
       "Instilling discipline, anti-doping awareness, self-worth, and positive life values.",
@@ -124,7 +124,7 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: "welfare",
-    icon: "🍽️",
+    icon: "05",
     title: "Welfare, Nutrition & Health Care",
     summary:
       "Providing post-run recovery meals, clean drinking water, and professional medical checkups.",
@@ -139,12 +139,12 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: "competition",
-    icon: "🚌",
+    icon: "06",
     title: "Competition Access & Race Sponsorship",
     summary:
       "Covering entry fees, transport, and lodging for local, county, and national athletic championships.",
     description:
-      "Rural athletes often miss life-changing championships simply because they cannot afford the KES 500 entry fee or the matatu bus fare to the host stadium. Kerumbe pays for race registration, team transport, lodging, and meals during competitive meets across the Rift Valley and national circuits.",
+      "Rural athletes often miss life-changing championships simply because they cannot afford the entry fee or the bus fare to the host stadium. Kerumbe pays for race registration, team transport, lodging, and meals during competitive meets across the Rift Valley and national circuits.",
     highlights: [
       "Official race registration & Athletics Kenya bib numbers",
       "Chartered team travel to county and national circuits",
@@ -299,8 +299,8 @@ export const DONATION_TIERS: DonationTier[] = [
     amountUSD: "$10",
     title: "Weekly Athlete Nutrition",
     description:
-      "Supplies wholesome post-run protein meals, fruit, and clean electrolyte water for one student-athlete for a whole week.",
-    icon: "🍽️",
+      "Supplies wholesome post-run protein meals, fruit, and clean drinking water for one student-athlete for a week.",
+    icon: "Nutrition",
   },
   {
     amountKES: "KES 2,000",
@@ -308,7 +308,7 @@ export const DONATION_TIERS: DonationTier[] = [
     title: "A Pair of Running Shoes",
     description:
       "Replaces worn-out footwear with quality, injury-preventing running shoes for training on rugged rural terrain.",
-    icon: "👟",
+    icon: "Footwear",
     popular: true,
   },
   {
@@ -317,7 +317,7 @@ export const DONATION_TIERS: DonationTier[] = [
     title: "Official Team Kit & Tracksuit",
     description:
       "Provides full competition gear, racing singlet, shorts, and club tracksuit so an athlete competes with dignity.",
-    icon: "🎽",
+    icon: "Team Kit",
   },
   {
     amountKES: "KES 5,000",
@@ -325,7 +325,7 @@ export const DONATION_TIERS: DonationTier[] = [
     title: "Championship Race Entry & Travel",
     description:
       "Covers regional competition entry fees, transport to the stadium, and safe lodging during away meets.",
-    icon: "🚌",
+    icon: "Competition",
   },
   {
     amountKES: "KES 15,000",
@@ -333,30 +333,30 @@ export const DONATION_TIERS: DonationTier[] = [
     title: "Full Monthly Sponsorship",
     description:
       "Comprehensive monthly support for one athlete: school supplies, running shoes, coaching, nutrition, and race transport.",
-    icon: "⭐",
+    icon: "Full Sponsor",
   },
 ];
 
 export const CONTACT_INFO: ContactInfo[] = [
   {
-    icon: "📍",
+    icon: "Location",
     label: "Headquarters & Operations",
     value: "Kericho County, Rift Valley, Kenya",
   },
   {
-    icon: "📞",
+    icon: "Phone",
     label: "Phone / M-Pesa",
     value: "+254 790 700228",
     href: "tel:+254790700228",
   },
   {
-    icon: "✉",
+    icon: "Email",
     label: "Email Inquiries",
     value: "stevegekara04@gmail.com",
     href: "mailto:stevegekara04@gmail.com",
   },
   {
-    icon: "🌐",
+    icon: "Web",
     label: "Official Website",
     value: "kerumbeathletics.co.ke",
     href: "https://kerumbeathletics.co.ke",

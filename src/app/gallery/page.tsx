@@ -2,99 +2,77 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import UtilityBar from "@/components/UtilityBar";
 import Navbar from "@/components/Navbar";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { GALLERY_IMAGES } from "@/data/siteData";
-import type { GalleryImage } from "@/types";
 
-const CATEGORIES = [
-  { label: "All Photos", value: "all" },
-  { label: "Competitions & Races", value: "competition" },
-  { label: "Training & School", value: "training" },
-  { label: "Welfare & Community", value: "community" },
-];
+const CATEGORIES = ["all", "competition", "training", "community"];
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeLightbox, setActiveLightbox] = useState<GalleryImage | null>(null);
+  const [cat, setCat] = useState("all");
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const filteredImages =
-    activeCategory === "all"
+  const filtered =
+    cat === "all"
       ? GALLERY_IMAGES
-      : GALLERY_IMAGES.filter((img) => img.category === activeCategory);
+      : GALLERY_IMAGES.filter((img) => img.category === cat);
 
   return (
     <main>
       <UtilityBar />
       <Navbar />
-
       <PageHero
-        badge="Visual Archives"
-        title="Moments That Define"
-        highlightedWord="Our Journey"
-        subtitle="Explore authentic snapshots of our student-athletes: from rugged training paths and classroom visits to national finish lines."
-        bgImage="/images/athletes-back.jpg"
-        breadcrumbs={[{ label: "Gallery" }]}
+        title="Photo Gallery"
+        subtitle="Every image tells the story of a young Kenyan runner chasing their dream."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
+        image="/images/athletes-back.jpg"
       />
 
-      {/* Filter Tabs */}
-      <section className="py-10 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center flex-wrap gap-2.5">
-            {CATEGORIES.map((cat) => (
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+
+          {/* Filter */}
+          <div className="flex flex-wrap gap-3 justify-center mb-12">
+            {CATEGORIES.map((c) => (
               <button
-                key={cat.value}
-                onClick={() => setActiveCategory(cat.value)}
-                className={`px-5 py-2.5 rounded-full font-[var(--font-montserrat)] text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
-                  activeCategory === cat.value
-                    ? "bg-[#E8001C] text-white shadow-md shadow-[#E8001C]/25"
-                    : "bg-[#F5F5F5] text-[#555] hover:bg-[#E8001C]/10 hover:text-[#E8001C]"
+                key={c}
+                onClick={() => setCat(c)}
+                className={`px-5 py-2.5 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all duration-200 ${
+                  cat === c
+                    ? "bg-red text-white shadow-lg"
+                    : "bg-offwhite text-charcoal hover:bg-red hover:text-white"
                 }`}
               >
-                {cat.label}
+                {c}
               </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Gallery Grid */}
-      <section className="py-16 lg:py-20 bg-[#F5F5F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredImages.map((img, idx) => (
+          {/* Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {filtered.map((img, i) => (
               <div
-                key={idx}
-                onClick={() => setActiveLightbox(img)}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-zoom-in"
+                key={img.src}
+                className={`gallery-item relative cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ${
+                  i === 0 ? "col-span-2 h-80" : "h-56"
+                }`}
+                onClick={() => setLightbox(img.src)}
               >
-                <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <span className="text-[0.65rem] font-[var(--font-montserrat)] font-bold text-[#FF1A35] uppercase tracking-widest mb-1">
-                      Click to Enlarge
-                    </span>
-                    <h3 className="text-white font-[var(--font-montserrat)] font-bold text-sm">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div className="gallery-overlay">
+                  <div>
+                    <span className="text-white text-xs font-heading font-bold uppercase tracking-wider">
                       {img.caption}
-                    </h3>
+                    </span>
                   </div>
-                </div>
-
-                <div className="p-4 border-t border-gray-100 bg-white">
-                  <p className="text-xs font-[var(--font-montserrat)] font-semibold text-[#0D0D0D]">
-                    {img.caption}
-                  </p>
                 </div>
               </div>
             ))}
@@ -102,56 +80,23 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
-      {activeLightbox && (
+      {/* Lightbox */}
+      {lightbox && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200"
-          onClick={() => setActiveLightbox(null)}
+          className="fixed inset-0 bg-black/92 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
         >
-          <button
-            onClick={() => setActiveLightbox(null)}
-            className="absolute top-6 right-6 text-white text-3xl font-light hover:text-[#E8001C] transition-colors cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-white/10"
-            aria-label="Close photo preview"
-          >
-            ✕
-          </button>
-          <div
-            className="relative max-w-4xl max-h-[85vh] w-full h-full flex flex-col items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative w-full h-[70vh] rounded-lg overflow-hidden shadow-2xl">
-              <Image
-                src={activeLightbox.src}
-                alt={activeLightbox.alt}
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <p className="text-white text-sm font-[var(--font-montserrat)] font-semibold mt-4 text-center">
-              {activeLightbox.caption}
-            </p>
+          <div className="relative max-w-5xl w-full max-h-[90vh] rounded-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <Image src={lightbox} alt="Gallery" width={1400} height={900} className="object-contain w-full max-h-[85vh]" />
           </div>
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 w-11 h-11 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center text-2xl transition-colors"
+          >
+            &times;
+          </button>
         </div>
       )}
-
-      {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-[var(--font-montserrat)] font-black text-3xl text-[#0D0D0D] mb-4">
-            Help Us Capture More Historic Moments
-          </h2>
-          <p className="text-[#555] text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Your donations directly equip these young runners with the uniforms and shoes you see in these photos.
-          </p>
-          <Link
-            href="/donate"
-            className="inline-block bg-[#E8001C] text-white px-8 py-3.5 rounded font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-wider hover:bg-[#B30016] transition-colors shadow-lg"
-          >
-            Donate to Support Our Athletes
-          </Link>
-        </div>
-      </section>
 
       <Footer />
       <BackToTop />

@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import UtilityBar from "@/components/UtilityBar";
 import Navbar from "@/components/Navbar";
 import PageHero from "@/components/PageHero";
@@ -7,237 +8,267 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { DONATION_TIERS } from "@/data/siteData";
 
-export const metadata: Metadata = {
-  title: "Ways to Give | Donate to Kerumbe Athletics",
-  description:
-    "Support gifted young runners in rural Kenya. Donate via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com) to provide running shoes, nutrition, coaching, and school fees.",
-  alternates: {
-    canonical: "https://kerumbeathletics.co.ke/donate",
-  },
-};
+const PRESETS_KES = [500, 1000, 2000, 3500, 5000, 15000];
+const PRESETS_USD = [5, 10, 20, 35, 50, 150];
 
 export default function DonatePage() {
+  const [currency, setCurrency] = useState<"KES" | "USD">("KES");
+  const [customAmount, setCustomAmount] = useState<number | string>(2000);
+  const [copied, setCopied] = useState(false);
+
+  const numeric = typeof customAmount === "string" ? parseFloat(customAmount) || 0 : customAmount;
+
+  const getImpactMessage = () => {
+    const val = currency === "USD" ? numeric * 130 : numeric;
+    if (val <= 0) return "Every shilling contributed directly supports a young runner in need.";
+    if (val < 1000) return "Provides nutritious high-protein snacks, hydration, and electrolytes during training.";
+    if (val < 2000) return "Covers a full week of wholesome recovery meals and fresh fruit for an athlete.";
+    if (val < 3500) return "Funds a durable pair of running shoes for training safely on rugged dirt roads.";
+    if (val < 5000) return "Provides full competition racing gear, club tracksuit, and academic textbooks.";
+    if (val < 15000) return "Covers regional championship registration, safe travel, meals, and lodging.";
+    return "Provides full monthly sponsorship: gear, coaching, school fees, meals, and competition travel.";
+  };
+
+  const copyNumber = () => {
+    navigator.clipboard.writeText("0790700228");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <main>
       <UtilityBar />
       <Navbar />
-
       <PageHero
-        badge="Invest in Potential"
-        title="Your Support Transforms a Young"
-        highlightedWord="Runner's Future"
-        subtitle="100% of your contributions directly fund running shoes, healthy post-run meals, school uniforms, and championship travel for rural student-athletes."
-        bgImage="/images/athletes-back.jpg"
-        breadcrumbs={[{ label: "Ways to Give" }]}
+        title="Support Our Athletes"
+        subtitle="Give any amount to fund running shoes, coaching, nutritious meals, and education for rural Kenyan runners."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Ways to Give" }]}
+        image="/images/kericho-finish.jpg"
       />
 
-      {/* Main Payment Channels */}
+      {/* Interactive Custom Donation Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-2 font-[var(--font-montserrat)] font-bold text-xs tracking-[3px] text-[#E8001C] uppercase mb-3">
-              <span className="w-4 h-0.5 bg-[#E8001C]" />
-              Direct Giving Channels
-            </span>
-            <h2 className="font-[var(--font-montserrat)] font-black text-3xl sm:text-4xl text-[#0D0D0D]">
-              How to Send Your <span className="text-[#E8001C]">Contribution</span>
+        <div className="container-custom">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <p className="section-label">Open-Ended Giving</p>
+            <h2 className="section-title mb-4">
+              Choose or Enter <span className="text-red">Any Amount</span>
             </h2>
-            <p className="text-sm text-[#555] mt-3">
-              We accept both local mobile money via M-Pesa and global transfers via PayPal.
+            <p className="text-muted text-base leading-relaxed">
+              Whether you give KES 200 or KES 20,000, your contribution makes a direct difference.
+              There are no minimums and no hidden fees.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* M-Pesa Card */}
-            <div className="bg-[#0D0D0D] text-white p-8 sm:p-10 rounded-2xl border-t-8 border-[#00B04F] shadow-xl relative overflow-hidden flex flex-col justify-between">
+          {/* Calculator Card */}
+          <div className="max-w-3xl mx-auto bg-offwhite border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-lg mb-16">
+
+            {/* Currency Switcher */}
+            <div className="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
               <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">📱</span>
-                    <div>
-                      <h3 className="font-[var(--font-montserrat)] font-black text-2xl text-white">
-                        M-Pesa (Kenya)
-                      </h3>
-                      <span className="text-xs text-[#00B04F] font-bold uppercase tracking-wider">
-                        Direct Mobile Money
-                      </span>
-                    </div>
-                  </div>
-                  <span className="bg-[#00B04F]/20 text-[#00B04F] border border-[#00B04F]/40 text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Instant
+                <span className="font-heading font-bold text-sm text-charcoal-dark block">
+                  Select Currency
+                </span>
+                <span className="text-xs text-muted">Kenyan Shillings (KES) or US Dollars (USD)</span>
+              </div>
+              <div className="inline-flex rounded-lg bg-white p-1 border border-gray-200">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCurrency("KES");
+                    setCustomAmount(2000);
+                  }}
+                  className={`px-4 py-1.5 rounded-md font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
+                    currency === "KES" ? "bg-red text-white" : "text-charcoal hover:text-red"
+                  }`}
+                >
+                  KES (KSh)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCurrency("USD");
+                    setCustomAmount(20);
+                  }}
+                  className={`px-4 py-1.5 rounded-md font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
+                    currency === "USD" ? "bg-red text-white" : "text-charcoal hover:text-red"
+                  }`}
+                >
+                  USD ($)
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Presets */}
+            <div className="mb-6">
+              <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-3">
+                Quick Select Suggested Amount
+              </label>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                {(currency === "KES" ? PRESETS_KES : PRESETS_USD).map((val) => (
+                  <button
+                    key={val}
+                    type="button"
+                    onClick={() => setCustomAmount(val)}
+                    className={`py-3 px-2 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all border ${
+                      numeric === val
+                        ? "bg-red text-white border-red shadow-md"
+                        : "bg-white text-charcoal-dark border-gray-200 hover:border-red hover:text-red"
+                    }`}
+                  >
+                    {currency === "KES" ? `KES ${val.toLocaleString()}` : `$${val}`}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Custom Amount Field */}
+            <div className="mb-6">
+              <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-2">
+                Or Enter Your Own Custom Amount ({currency})
+              </label>
+              <div className="relative">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 font-heading font-bold text-base text-gray-500">
+                  {currency === "KES" ? "KES" : "$"}
+                </span>
+                <input
+                  type="number"
+                  min="1"
+                  placeholder="Enter any amount you wish to donate..."
+                  value={customAmount}
+                  onChange={(e) => setCustomAmount(e.target.value)}
+                  className="w-full pl-16 pr-4 py-3.5 rounded-xl border border-gray-300 bg-white font-heading font-bold text-xl text-charcoal-dark focus:outline-none focus:ring-2 focus:ring-red focus:border-red"
+                />
+              </div>
+            </div>
+
+            {/* Impact feedback */}
+            <div className="p-4 bg-white rounded-xl border border-red/20 mb-8">
+              <div className="text-[10px] font-heading font-bold uppercase tracking-wider text-red mb-1">
+                Your Donation Impact
+              </div>
+              <p className="text-charcoal-dark text-sm font-medium leading-relaxed">
+                {getImpactMessage()}
+              </p>
+            </div>
+
+            {/* Direct M-Pesa Instruction */}
+            <div className="bg-charcoal-dark text-white rounded-2xl p-6 sm:p-8">
+              <div className="text-xs font-heading font-bold uppercase tracking-wider text-red mb-2">
+                Payment Option 1: Mobile Money
+              </div>
+              <h3 className="font-heading font-black text-2xl mb-4">
+                Send via M-Pesa to Chairman Steve Makwae
+              </h3>
+
+              <div className="bg-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+                <div>
+                  <span className="text-xs text-gray-400 block">M-Pesa Number</span>
+                  <span className="font-heading font-black text-2xl text-white tracking-wide">
+                    0790 700228
                   </span>
                 </div>
+                <button
+                  type="button"
+                  onClick={copyNumber}
+                  className="px-4 py-2 bg-red hover:bg-red-dark text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors"
+                >
+                  {copied ? "Copied" : "Copy Number"}
+                </button>
+              </div>
 
-                <p className="text-xs text-white/75 leading-relaxed mb-6">
-                  Use your Safaricom M-Pesa menu to send your gift directly to the club&apos;s registered management line:
-                </p>
-
-                <div className="bg-[#1A1A1A] p-5 rounded-xl border border-white/10 space-y-3 mb-6">
-                  <div className="flex items-center justify-between border-b border-white/5 pb-2 text-xs">
-                    <span className="text-white/60">Phone / Send Money:</span>
-                    <strong className="text-xl font-[var(--font-montserrat)] font-black text-[#00B04F]">
-                      0790 700228
-                    </strong>
-                  </div>
-                  <div className="flex items-center justify-between border-b border-white/5 pb-2 text-xs">
-                    <span className="text-white/60">Recipient Name:</span>
-                    <strong className="text-white">Steve Makwae Gekara</strong>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-white/60">Reference:</span>
-                    <strong className="text-white">Kerumbe Athletics</strong>
-                  </div>
+              <div className="grid sm:grid-cols-2 gap-3 text-xs mb-6">
+                <div className="bg-white/5 p-3 rounded-lg border border-white/10">
+                  <span className="text-gray-400 block">Name on Account</span>
+                  <span className="font-heading font-bold text-white text-sm">Steve Makwae Gekara</span>
+                </div>
+                <div className="bg-white/5 p-3 rounded-lg border border-white/10">
+                  <span className="text-gray-400 block">Reference / Account</span>
+                  <span className="font-heading font-bold text-white text-sm">Kerumbe Donation</span>
                 </div>
               </div>
 
-              <a
-                href="tel:+254790700228"
-                className="block text-center bg-[#00B04F] text-white py-3 rounded-lg font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-wider hover:bg-[#009241] transition-colors"
-              >
-                Send via M-Pesa (+254 790 700228)
-              </a>
-            </div>
-
-            {/* PayPal Card */}
-            <div className="bg-[#0D0D0D] text-white p-8 sm:p-10 rounded-2xl border-t-8 border-[#0079C1] shadow-xl relative overflow-hidden flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">💳</span>
-                    <div>
-                      <h3 className="font-[var(--font-montserrat)] font-black text-2xl text-white">
-                        PayPal (Global)
-                      </h3>
-                      <span className="text-xs text-[#0079C1] font-bold uppercase tracking-wider">
-                        International & Cards
-                      </span>
-                    </div>
-                  </div>
-                  <span className="bg-[#0079C1]/20 text-[#0079C1] border border-[#0079C1]/40 text-[0.65rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Worldwide
-                  </span>
-                </div>
-
-                <p className="text-xs text-white/75 leading-relaxed mb-6">
-                  For supporters in North America, Europe, and globally wishing to send gifts securely via PayPal or Credit Card:
-                </p>
-
-                <div className="bg-[#1A1A1A] p-5 rounded-xl border border-white/10 space-y-3 mb-6">
-                  <div className="flex items-center justify-between border-b border-white/5 pb-2 text-xs">
-                    <span className="text-white/60">PayPal Address:</span>
-                    <strong className="text-sm font-[var(--font-montserrat)] text-[#0079C1] break-all">
-                      stevegekara04@gmail.com
-                    </strong>
-                  </div>
-                  <div className="flex items-center justify-between border-b border-white/5 pb-2 text-xs">
-                    <span className="text-white/60">Account Holder:</span>
-                    <strong className="text-white">Steve Makwae Gekara</strong>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-white/60">Note:</span>
-                    <strong className="text-white">Kerumbe Athlete Support</strong>
-                  </div>
-                </div>
+              <div className="flex flex-wrap gap-3">
+                <a href="tel:+254790700228" className="btn-red text-xs py-3 px-6">
+                  Call Chairman Steve
+                </a>
               </div>
-
-              <a
-                href="mailto:stevegekara04@gmail.com?subject=Kerumbe Athletics PayPal Donation"
-                className="block text-center bg-[#0079C1] text-white py-3 rounded-lg font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-wider hover:bg-[#005e94] transition-colors"
-              >
-                Donate via PayPal
-              </a>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Impact Breakdown / Sponsorship Tiers */}
-      <section className="py-20 bg-[#F5F5F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-2 font-[var(--font-montserrat)] font-bold text-xs tracking-[3px] text-[#E8001C] uppercase mb-3">
-              <span className="w-4 h-0.5 bg-[#E8001C]" />
-              Transparency in Giving
-            </span>
-            <h2 className="font-[var(--font-montserrat)] font-black text-3xl sm:text-4xl text-[#0D0D0D]">
-              What Your Gift <span className="text-[#E8001C]">Accomplishes</span>
-            </h2>
-            <p className="text-sm text-[#555] mt-3">
-              Every shilling or dollar provides concrete items for student-athletes.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {/* Suggested Sponsorship Programs */}
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <p className="section-label">Suggested Programs</p>
+            <h3 className="font-heading font-black text-2xl text-charcoal-dark">
+              Specific Giving Programs
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {DONATION_TIERS.map((tier) => (
               <div
-                key={tier.amountKES}
-                className={`bg-white rounded-xl p-6 shadow-sm border transition-all duration-300 flex flex-col justify-between ${
-                  tier.popular
-                    ? "border-2 border-[#E8001C] ring-4 ring-[#E8001C]/10"
-                    : "border-gray-200"
+                key={tier.title}
+                className={`card border p-8 flex flex-col ${
+                  tier.popular ? "border-red ring-2 ring-red relative" : "border-gray-100"
                 }`}
               >
-                <div>
-                  {tier.popular && (
-                    <span className="bg-[#E8001C] text-white text-[0.62rem] font-[var(--font-montserrat)] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full inline-block mb-3">
-                      Most Needed
-                    </span>
-                  )}
-                  <div className="text-3xl mb-3">{tier.icon}</div>
-                  <span className="block font-[var(--font-montserrat)] font-black text-2xl text-[#0D0D0D]">
-                    {tier.amountKES}
-                  </span>
-                  <span className="block text-xs font-bold text-[#E8001C] mb-3">
-                    approx. {tier.amountUSD} USD
-                  </span>
-                  <h4 className="font-[var(--font-montserrat)] font-bold text-sm text-[#0D0D0D] mb-2">
-                    {tier.title}
-                  </h4>
-                  <p className="text-xs text-[#666] leading-relaxed mb-4">
-                    {tier.description}
-                  </p>
-                </div>
-
-                <a
-                  href="tel:+254790700228"
-                  className="block text-center text-xs font-[var(--font-montserrat)] font-bold uppercase tracking-wider text-[#E8001C] hover:text-[#B30016] pt-3 border-t border-gray-100"
+                {tier.popular && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-red text-white text-[10px] font-heading font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+                    Most Popular
+                  </div>
+                )}
+                <div className="font-heading font-black text-2xl text-red mb-1">{tier.amountKES}</div>
+                <div className="text-muted text-xs mb-4">{tier.amountUSD}</div>
+                <h4 className="font-heading font-bold text-base text-charcoal-dark mb-2">{tier.title}</h4>
+                <p className="text-muted text-xs leading-relaxed flex-1 mb-6">{tier.description}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const clean = parseInt(tier.amountKES.replace(/\D/g, "")) || 2000;
+                    setCustomAmount(clean);
+                    window.scrollTo({ top: 350, behavior: "smooth" });
+                  }}
+                  className={`w-full py-2.5 rounded font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
+                    tier.popular
+                      ? "bg-red text-white hover:bg-red-dark"
+                      : "border-2 border-red text-red hover:bg-red hover:text-white"
+                  }`}
                 >
-                  Give This Tier →
-                </a>
+                  Select This Program
+                </button>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* In-Kind Donations */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0D0D0D] text-white rounded-2xl p-8 sm:p-12 border-l-8 border-[#E8001C]">
-            <span className="text-xs font-[var(--font-montserrat)] font-bold uppercase tracking-widest text-[#FF1A35] block mb-2">
-              Gear & Equipment Partnership
-            </span>
-            <h3 className="font-[var(--font-montserrat)] font-black text-2xl sm:text-3xl text-white mb-4">
-              Accepting In-Kind Athletic Gear & School Books
+          {/* International & Bank Transfers */}
+          <div className="bg-offwhite rounded-3xl p-8 sm:p-10 border border-gray-200 max-w-3xl mx-auto">
+            <div className="text-xs font-heading font-bold uppercase tracking-wider text-red mb-2">
+              Payment Option 2: Bank &amp; International
+            </div>
+            <h3 className="font-heading font-black text-2xl text-charcoal-dark mb-3">
+              Bank Wire, PayPal &amp; Corporate CSR
             </h3>
-            <p className="text-sm text-white/75 leading-relaxed mb-6 font-[var(--font-open-sans)]">
-              Are you an athletic club, sports retailer, school, or NGO with running shoes, racing vests, stopwatches, training cones, or educational books? We gratefully accept physical donations and distribute them directly to rural runners in Kericho.
+            <p className="text-muted text-sm leading-relaxed mb-6">
+              For direct bank transfers, international wire transfers, or corporate sponsorships,
+              please reach out to us and we will provide our bank account details and official receipt.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/contact"
-                className="bg-[#E8001C] text-white px-6 py-3 rounded font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-wider hover:bg-[#B30016] transition-colors"
-              >
-                Arrange In-Kind Shipment
-              </Link>
+            <div className="flex flex-wrap gap-4">
               <a
-                href="mailto:stevegekara04@gmail.com?subject=In-Kind Equipment Donation"
-                className="text-xs font-[var(--font-montserrat)] font-bold text-white/80 hover:text-white uppercase tracking-wider underline underline-offset-4"
+                href="mailto:stevegekara04@gmail.com?subject=Corporate or International Donation - Kerumbe Athletics"
+                className="btn-red"
               >
-                Email Details to Chairman
+                Email For Bank Details
+              </a>
+              <a
+                href="tel:+254790700228"
+                className="btn-outline"
+              >
+                Call +254 790 700228
               </a>
             </div>
           </div>
+
         </div>
       </section>
 

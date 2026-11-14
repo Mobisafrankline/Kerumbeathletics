@@ -1,108 +1,225 @@
 "use client";
 
-import { DONATION_TIERS } from "@/data/siteData";
+import { useState } from "react";
+import Link from "next/link";
+
+const PRESETS_KES = [500, 1000, 2000, 5000, 10000];
+const PRESETS_USD = [5, 10, 20, 50, 100];
 
 export default function Donate() {
-  return (
-    <section
-      id="donate"
-      className="py-24 bg-[#0D0D0D] relative overflow-hidden"
-      style={{ backgroundImage: "url('/images/kericho-finish.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
-    >
-      <div className="absolute inset-0 bg-[#0D0D0D]/92" />
+  const [currency, setCurrency] = useState<"KES" | "USD">("KES");
+  const [amount, setAmount] = useState<number | string>(2000);
+  const [copied, setCopied] = useState(false);
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-14 items-center">
-        {/* Text */}
-        <div>
-          <SectionLabel>Support Us</SectionLabel>
-          <h2 className="font-[var(--font-montserrat)] font-bold text-3xl lg:text-4xl text-white leading-tight mb-4">
-            Help a Young Runner{" "}
-            <span className="text-[#E8001C]">Reach Their Dream</span>
+  const numericAmount = typeof amount === "string" ? parseFloat(amount) || 0 : amount;
+
+  const getImpactMessage = () => {
+    const valInKES = currency === "USD" ? numericAmount * 130 : numericAmount;
+    if (valInKES <= 0) {
+      return "Every contribution, of any amount, directly supports young rural runners.";
+    }
+    if (valInKES < 1000) {
+      return `Your gift provides post-training hydration, electrolytes, and healthy fruit for an athlete.`;
+    }
+    if (valInKES < 2000) {
+      return `Your gift funds wholesome post-training meals and protein nutrition for a student-athlete.`;
+    }
+    if (valInKES < 3500) {
+      return `Your gift equips a young runner with a quality pair of training shoes for rural dirt roads.`;
+    }
+    if (valInKES < 5000) {
+      return `Your gift provides official racing singlets, team tracksuit, and essential school supplies.`;
+    }
+    if (valInKES < 15000) {
+      return `Your gift sponsors race championship entry fees, travel, meals, and safe lodging.`;
+    }
+    return `Your generous gift provides comprehensive monthly sponsorship covering gear, schooling, coaching, and nutrition.`;
+  };
+
+  const copyNumber = () => {
+    navigator.clipboard.writeText("0790700228");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="container-custom">
+
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <p className="section-label">Support Our Athletes</p>
+          <h2 className="section-title mb-4">
+            Donate Any Amount to <span className="text-red">Empower a Champion</span>
           </h2>
-          <p className="text-white/70 leading-relaxed mb-7">
-            Every contribution — big or small — makes a direct difference in the life of a
-            Kenyan rural athlete. Your donation pays for shoes, meals, coaching, travel, and hope.
+          <p className="text-muted text-base leading-relaxed">
+            There is no fixed requirement. Every single shilling goes directly toward running shoes,
+            coaching, nutritious meals, and keeping student-athletes in school.
           </p>
-          <ul className="space-y-3">
-            {DONATION_TIERS.map((t) => (
-              <li
-                key={t.amountKES}
-                className="text-white/80 text-sm flex items-center gap-2 border-b border-white/8 pb-3"
-              >
-                <span className="text-base">{t.icon}</span>
-                <strong className="text-white">{t.amountKES}</strong>
-                <span>({t.amountUSD})</span>
-                <span>—</span>
-                <span>{t.description}</span>
-              </li>
-            ))}
-          </ul>
         </div>
 
-        {/* Card */}
-        <div className="bg-white rounded-xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
-          <h3 className="font-[var(--font-montserrat)] font-bold text-2xl text-[#0D0D0D] mb-1">
-            Make a Donation
-          </h3>
-          <p className="text-[#555] text-sm mb-6">
-            Your generosity changes lives. Choose how you&apos;d like to give:
-          </p>
+        {/* Custom Donation Calculator Card */}
+        <div className="max-w-3xl mx-auto bg-offwhite border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-lg mb-12">
 
-          <DonateMethod icon="📱" title="M-Pesa">
-            <p className="text-sm">
-              Send to:{" "}
-              <strong className="text-[#E8001C] font-bold">0790 700228</strong>
+          {/* Currency Toggle */}
+          <div className="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+            <div>
+              <span className="font-heading font-bold text-sm text-charcoal-dark block">
+                Choose Donation Currency
+              </span>
+              <span className="text-xs text-muted">Select Kenyan Shillings or US Dollars</span>
+            </div>
+            <div className="inline-flex rounded-lg bg-white p-1 border border-gray-200 shadow-xs">
+              <button
+                type="button"
+                onClick={() => {
+                  setCurrency("KES");
+                  setAmount(2000);
+                }}
+                className={`px-4 py-1.5 rounded-md font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
+                  currency === "KES"
+                    ? "bg-red text-white"
+                    : "text-charcoal hover:text-red"
+                }`}
+              >
+                KES (KSh)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setCurrency("USD");
+                  setAmount(20);
+                }}
+                className={`px-4 py-1.5 rounded-md font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
+                  currency === "USD"
+                    ? "bg-red text-white"
+                    : "text-charcoal hover:text-red"
+                }`}
+              >
+                USD ($)
+              </button>
+            </div>
+          </div>
+
+          {/* Quick Preset Buttons */}
+          <div className="mb-6">
+            <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-3">
+              Quick Select Amount
+            </label>
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-2.5">
+              {(currency === "KES" ? PRESETS_KES : PRESETS_USD).map((preset) => {
+                const isSelected = numericAmount === preset;
+                return (
+                  <button
+                    key={preset}
+                    type="button"
+                    onClick={() => setAmount(preset)}
+                    className={`py-3 px-2 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all duration-150 border ${
+                      isSelected
+                        ? "bg-red text-white border-red shadow-md"
+                        : "bg-white text-charcoal-dark border-gray-200 hover:border-red hover:text-red"
+                    }`}
+                  >
+                    {currency === "KES" ? `KES ${preset.toLocaleString()}` : `$${preset}`}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Custom Open-Ended Input */}
+          <div className="mb-6">
+            <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-2">
+              Or Enter Any Custom Amount ({currency})
+            </label>
+            <div className="relative">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 font-heading font-bold text-sm text-gray-500">
+                {currency === "KES" ? "KES" : "$"}
+              </span>
+              <input
+                type="number"
+                min="1"
+                placeholder="Type any custom amount..."
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="w-full pl-16 pr-4 py-3.5 rounded-xl border border-gray-300 bg-white font-heading font-bold text-lg text-charcoal-dark focus:outline-none focus:ring-2 focus:ring-red focus:border-red transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Dynamic Impact Feedback */}
+          <div className="p-4 bg-white rounded-xl border border-red/20 mb-8">
+            <div className="text-[10px] font-heading font-bold uppercase tracking-wider text-red mb-1">
+              Direct Impact of Your Contribution
+            </div>
+            <p className="text-charcoal-dark text-sm font-medium leading-relaxed">
+              {getImpactMessage()}
             </p>
-            <p className="text-xs text-[#AAAAAA] mt-0.5">Lipa Na M-Pesa</p>
-          </DonateMethod>
+          </div>
 
-          <DonateMethod icon="💳" title="PayPal">
-            <p className="text-sm">
-              <strong className="text-[#E8001C] font-bold">stevegekara04@gmail.com</strong>
-            </p>
-            <p className="text-xs text-[#AAAAAA] mt-0.5">International donations welcome</p>
-          </DonateMethod>
+          {/* Payment Instructions */}
+          <div className="bg-charcoal-dark text-white rounded-2xl p-6 sm:p-7">
+            <div className="text-xs font-heading font-bold uppercase tracking-wider text-red mb-2">
+              M-Pesa Donation Instructions
+            </div>
+            <h3 className="font-heading font-black text-xl mb-4">
+              Send Directly via M-Pesa
+            </h3>
 
-          <a
-            href="mailto:stevegekara04@gmail.com?subject=Kerumbe Athletics Donation"
-            className="block w-full text-center bg-[#E8001C] text-white font-[var(--font-montserrat)] font-bold px-6 py-3 rounded text-sm tracking-wide hover:bg-[#B30016] transition-colors mt-2"
-          >
-            Contact to Donate →
-          </a>
+            <div className="space-y-3 mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-white/10 p-3.5 rounded-xl gap-2">
+                <div>
+                  <span className="text-xs text-gray-400 block">Phone / M-Pesa Number</span>
+                  <span className="font-heading font-black text-xl text-white tracking-wide">
+                    0790 700228
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={copyNumber}
+                  className="self-start sm:self-auto px-4 py-1.5 bg-red hover:bg-red-dark text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors"
+                >
+                  {copied ? "Copied" : "Copy Number"}
+                </button>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3 text-xs">
+                <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span className="text-gray-400 block mb-0.5">Account / Recipient Name</span>
+                  <span className="font-heading font-bold text-white">Steve Makwae Gekara</span>
+                  <span className="text-gray-400 block text-[11px]">(Chairman &amp; Founder)</span>
+                </div>
+                <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span className="text-gray-400 block mb-0.5">Payment Reference / Note</span>
+                  <span className="font-heading font-bold text-white">Kerumbe Donation</span>
+                  <span className="text-gray-400 block text-[11px]">Optional: Your Name</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="tel:+254790700228"
+                className="btn-red text-xs py-3 px-6"
+              >
+                Call to Confirm Donation
+              </a>
+              <Link
+                href="/donate"
+                className="btn-outline border-white text-white hover:bg-white hover:text-charcoal-dark text-xs py-3 px-6"
+              >
+                All Donation Options
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Transparency Footnote */}
+        <div className="text-center text-xs text-muted max-w-xl mx-auto">
+          Kerumbe Athletics Sports Club operates with strict financial accountability.
+          Every donation goes directly to athlete gear, transport, meals, and education fees.
         </div>
       </div>
     </section>
   );
 }
-
-function DonateMethod({
-  icon,
-  title,
-  children,
-}: {
-  icon: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex items-start gap-4 p-4 bg-[#F5F5F5] rounded-lg mb-4">
-      <span className="text-3xl flex-shrink-0">{icon}</span>
-      <div>
-        <strong className="block font-[var(--font-montserrat)] text-sm text-[#0D0D0D] mb-0.5">
-          {title}
-        </strong>
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-3 font-[var(--font-montserrat)] font-bold text-[0.72rem] tracking-[3px] uppercase text-[#FF1A35] mb-3">
-      <span className="w-5 h-0.5 bg-[#FF1A35] inline-block flex-shrink-0" />
-      {children}
-    </span>
-  );
-}
-

@@ -1,109 +1,102 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { CONTACT_INFO } from "@/data/siteData";
-import type { ContactInfo } from "@/types";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-  };
-
   return (
-    <section id="contact" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-        {/* Info */}
-        <div>
-          <SectionLabel>Get In Touch</SectionLabel>
-          <h2 className="font-[var(--font-montserrat)] font-bold text-3xl lg:text-4xl text-[#0D0D0D] mb-4">
-            Contact <span className="text-[#E8001C]">Kerumbe</span>
-          </h2>
-          <p className="text-[#555] leading-relaxed mb-8">
-            Whether you want to support us, partner with us, or learn more about our work
-            — we&apos;d love to hear from you.
-          </p>
+    <section className="py-20 bg-offwhite">
+      <div className="container-custom">
 
-          <div className="flex flex-col gap-5">
-            {CONTACT_INFO.map((info: ContactInfo) => (
-              <div key={info.label} className="flex items-start gap-4">
-                <div className="w-11 h-11 bg-[#E8001C] rounded-full flex items-center justify-center text-xl flex-shrink-0">
-                  {info.icon}
-                </div>
-                <div>
-                  <strong className="block font-[var(--font-montserrat)] text-xs uppercase tracking-wide text-[#0D0D0D]">
-                    {info.label}
-                  </strong>
-                  {info.href ? (
-                    <a href={info.href} className="text-sm text-[#555] hover:text-[#E8001C] transition-colors">
-                      {info.value}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+          {/* Info */}
+          <div>
+            <p className="section-label">Contact Us</p>
+            <h2 className="section-title mb-5">
+              Get in <span className="text-red">Touch</span>
+            </h2>
+            <p className="text-muted text-base leading-relaxed mb-8">
+              Whether you want to sponsor an athlete, volunteer your time,
+              or simply learn more about our work — we would love to hear from you.
+            </p>
+
+            <div className="space-y-4 mb-8">
+              {CONTACT_INFO.map((item) => (
+                <div key={item.label} className="bg-white rounded-xl p-5 shadow-xs border border-gray-100">
+                  <div className="font-heading font-bold text-xs text-red uppercase tracking-wider mb-1">
+                    {item.label}
+                  </div>
+                  {item.href ? (
+                    <a href={item.href} className="font-body text-charcoal-dark font-semibold hover:text-red transition-colors text-base">
+                      {item.value}
                     </a>
                   ) : (
-                    <p className="text-sm text-[#555] m-0">{info.value}</p>
+                    <span className="font-body text-charcoal-dark font-semibold text-base">{item.value}</span>
                   )}
                 </div>
+              ))}
+            </div>
+
+            <Link href="/contact" className="btn-red">
+              Send Us a Message
+            </Link>
+          </div>
+
+          {/* Quick Contact Form */}
+          <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
+            <h3 className="font-heading font-bold text-xl text-charcoal-dark mb-6">
+              Quick Message
+            </h3>
+            <form className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-red/30 focus:border-red"
+                  />
+                </div>
+                <div>
+                  <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-red/30 focus:border-red"
+                  />
+                </div>
               </div>
-            ))}
+              <div>
+                <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-2">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  placeholder="How can we help?"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-red/30 focus:border-red"
+                />
+              </div>
+              <div>
+                <label className="block font-heading font-bold text-xs text-muted uppercase tracking-wider mb-2">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Your message..."
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-red/30 focus:border-red resize-none"
+                />
+              </div>
+              <button type="submit" className="btn-red w-full justify-center">
+                Send Message
+              </button>
+            </form>
           </div>
+
         </div>
-
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="bg-[#F5F5F5] rounded-xl p-8"
-        >
-          <h3 className="font-[var(--font-montserrat)] font-bold text-xl text-[#0D0D0D] mb-6">
-            Send a Message
-          </h3>
-
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              required
-              className="col-span-1 px-4 py-3 bg-white border-2 border-transparent rounded focus:border-[#E8001C] outline-none text-sm transition-colors"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              required
-              className="col-span-1 px-4 py-3 bg-white border-2 border-transparent rounded focus:border-[#E8001C] outline-none text-sm transition-colors"
-            />
-          </div>
-          <input
-            type="text"
-            placeholder="Subject"
-            required
-            className="w-full px-4 py-3 bg-white border-2 border-transparent rounded focus:border-[#E8001C] outline-none text-sm mb-4 block transition-colors"
-          />
-          <textarea
-            placeholder="Your message..."
-            rows={5}
-            required
-            className="w-full px-4 py-3 bg-white border-2 border-transparent rounded focus:border-[#E8001C] outline-none text-sm mb-5 resize-y block transition-colors"
-          />
-          <button
-            type="submit"
-            className={`w-full py-3 rounded font-[var(--font-montserrat)] font-bold text-sm text-white transition-all duration-300
-              ${submitted ? "bg-green-600" : "bg-[#E8001C] hover:bg-[#B30016]"}`}
-          >
-            {submitted ? "✓ Message Sent!" : "Send Message"}
-          </button>
-        </form>
       </div>
     </section>
   );
 }
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-3 font-[var(--font-montserrat)] font-bold text-[0.72rem] tracking-[3px] uppercase text-[#E8001C] mb-3">
-      <span className="w-5 h-0.5 bg-[#E8001C] inline-block flex-shrink-0" />
-      {children}
-    </span>
-  );
-}
-

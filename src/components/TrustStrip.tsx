@@ -1,21 +1,22 @@
+"use client";
+
 import { TRUST_ITEMS } from "@/data/siteData";
 
 export default function TrustStrip() {
+  const doubled = [...TRUST_ITEMS, ...TRUST_ITEMS];
   return (
-    <div className="bg-[#E8001C] py-3">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-center flex-wrap gap-4 sm:gap-6">
-        {TRUST_ITEMS.map((item, i) => (
-          <span key={item} className="flex items-center gap-4">
-            <span className="text-white font-[var(--font-montserrat)] text-xs font-semibold tracking-wide">
-              {item}
-            </span>
-            {i < TRUST_ITEMS.length - 1 && (
-              <span className="text-white/40 hidden sm:inline">|</span>
-            )}
+    <div className="bg-red overflow-hidden py-3">
+      <div className="flex animate-ticker whitespace-nowrap">
+        {doubled.map((item, i) => (
+          <span
+            key={i}
+            className="inline-flex items-center gap-3 text-white font-heading font-bold text-xs uppercase tracking-widest px-10"
+          >
+            {item}
+            <span className="text-white/40 ml-6">&#9679;</span>
           </span>
         ))}
       </div>
     </div>
   );
 }
-

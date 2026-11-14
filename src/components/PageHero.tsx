@@ -1,74 +1,48 @@
 import Link from "next/link";
 
 interface PageHeroProps {
-  badge: string;
   title: string;
-  highlightedWord?: string;
-  subtitle: string;
-  bgImage?: string;
-  breadcrumbs?: { label: string; href?: string }[];
+  subtitle?: string;
+  breadcrumbs: { label: string; href?: string }[];
+  image?: string;
 }
 
-export default function PageHero({
-  badge,
-  title,
-  highlightedWord,
-  subtitle,
-  bgImage = "/images/kericho-finish.jpg",
-  breadcrumbs = [],
-}: PageHeroProps) {
+export default function PageHero({ title, subtitle, breadcrumbs, image }: PageHeroProps) {
+  const bg = image || "/images/kericho-finish.jpg";
   return (
-    <div className="relative bg-[#0D0D0D] text-white py-20 sm:py-24 overflow-hidden">
-      {/* Background with Dark Monochrome overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url('${bgImage}')` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D0D] via-[#0D0D0D]/90 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] to-transparent" />
+    <section
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-red" />
 
-      {/* Decorative accent red bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E8001C] via-[#FF1A35] to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container-custom">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-xs text-white/50 mb-6 font-[var(--font-montserrat)] uppercase tracking-wider">
-          <Link href="/" className="hover:text-white transition-colors">
-            Home
-          </Link>
-          {breadcrumbs.map((crumb, idx) => (
-            <span key={idx} className="flex items-center gap-2">
-              <span className="text-[#E8001C]">/</span>
+        <nav className="flex items-center gap-2 text-xs mb-6" aria-label="Breadcrumb">
+          {breadcrumbs.map((crumb, i) => (
+            <span key={i} className="flex items-center gap-2">
               {crumb.href ? (
-                <Link href={crumb.href} className="hover:text-white transition-colors">
+                <Link href={crumb.href} className="text-gray-300 hover:text-red transition-colors font-heading font-semibold uppercase tracking-wider">
                   {crumb.label}
                 </Link>
               ) : (
-                <span className="text-white/90">{crumb.label}</span>
+                <span className="text-red font-heading font-bold uppercase tracking-wider">{crumb.label}</span>
+              )}
+              {i < breadcrumbs.length - 1 && (
+                <span className="text-gray-500">&#8250;</span>
               )}
             </span>
           ))}
-        </div>
+        </nav>
 
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-[rgba(232,0,28,0.2)] border border-[rgba(232,0,28,0.4)] text-white font-[var(--font-montserrat)] text-[0.72rem] font-bold tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E8001C]" />
-          {badge}
-        </div>
-
-        {/* Title */}
-        <h1 className="font-[var(--font-montserrat)] font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight max-w-4xl">
-          {title}{" "}
-          {highlightedWord && (
-            <span className="text-[#E8001C]">{highlightedWord}</span>
-          )}
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-white/75 text-base sm:text-lg max-w-2xl mt-5 leading-relaxed font-[var(--font-open-sans)]">
-          {subtitle}
-        </p>
+        <h1 className="section-title-white text-shadow mb-4 max-w-2xl">{title}</h1>
+        {subtitle && (
+          <p className="text-gray-200 text-base md:text-lg leading-relaxed max-w-xl">
+            {subtitle}
+          </p>
+        )}
       </div>
-    </div>
+    </section>
   );
 }

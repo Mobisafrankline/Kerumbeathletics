@@ -1,95 +1,84 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { GALLERY_IMAGES } from "@/data/siteData";
-import type { GalleryImage } from "@/types";
 
 export default function Gallery() {
-  const [lightbox, setLightbox] = useState<GalleryImage | null>(null);
-
-  const openLightbox = useCallback((img: GalleryImage) => setLightbox(img), []);
-  const closeLightbox = useCallback(() => setLightbox(null), []);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  const preview = GALLERY_IMAGES.slice(0, 6);
 
   return (
-    <section id="gallery" className="py-24 bg-[#F0F0F0]">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <SectionLabel>Gallery</SectionLabel>
-          <h2 className="font-[var(--font-montserrat)] font-bold text-3xl lg:text-4xl text-[#0D0D0D] leading-tight">
-            Moments That Define <span className="text-[#E8001C]">Us</span>
+    <section className="py-20 bg-offwhite">
+      <div className="container-custom">
+
+        <div className="text-center max-w-xl mx-auto mb-12">
+          <p className="section-label">Photo Gallery</p>
+          <h2 className="section-title mb-4">
+            Moments That <span className="text-red">Define Us</span>
           </h2>
-          <p className="text-[#555] max-w-lg mx-auto mt-3 text-sm">
-            From the track to the dining table — every moment is part of our athletes&apos; journey.
+          <p className="text-muted text-sm leading-relaxed">
+            From pre-dawn training sessions to championship finish lines —
+            glimpses of the Kerumbe journey.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 auto-rows-[220px] gap-3">
-          {GALLERY_IMAGES.map((img) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+          {preview.map((img, i) => (
             <div
               key={img.src}
-              onClick={() => openLightbox(img)}
-              className={`gallery-item relative overflow-hidden rounded cursor-zoom-in group ${
-                img.large ? "col-span-2 row-span-2" : ""
+              className={`gallery-item relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 ${
+                i === 0 ? "col-span-2 h-72" : "h-48"
               }`}
+              onClick={() => setLightbox(img.src)}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 50vw, 25vw"
+                className="object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="gallery-overlay">
-                <span className="text-white font-[var(--font-montserrat)] font-bold text-xs uppercase tracking-widest">
+                <span className="text-white font-heading font-bold text-xs uppercase tracking-wider">
                   {img.caption}
                 </span>
               </div>
             </div>
           ))}
         </div>
+
+        <div className="text-center">
+          <Link href="/gallery" className="btn-red mx-auto">
+            View Full Gallery
+          </Link>
+        </div>
       </div>
 
       {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 bg-black/92 z-[9999] flex items-center justify-center cursor-zoom-out"
-          onClick={closeLightbox}
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
         >
-          <button
-            className="absolute top-5 right-6 text-white/80 hover:text-white text-4xl bg-none border-none cursor-pointer"
-            onClick={closeLightbox}
-            aria-label="Close"
-          >
-            ✕
-          </button>
-          <div
-            className="relative w-[90vw] h-[85vh] max-w-4xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative max-w-4xl w-full max-h-[90vh] rounded-xl overflow-hidden">
             <Image
-              src={lightbox.src}
-              alt={lightbox.alt}
-              fill
-              className="object-contain rounded"
-              sizes="90vw"
+              src={lightbox}
+              alt="Gallery photo"
+              width={1200}
+              height={800}
+              className="object-contain w-full h-full"
             />
-            <p className="absolute -bottom-8 left-0 right-0 text-center text-white/60 text-sm font-[var(--font-montserrat)]">
-              {lightbox.caption}
-            </p>
           </div>
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center text-xl transition-colors"
+            aria-label="Close lightbox"
+          >
+            &times;
+          </button>
         </div>
       )}
     </section>
   );
 }
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-3 font-[var(--font-montserrat)] font-bold text-[0.72rem] tracking-[3px] uppercase text-[#E8001C] mb-3">
-      <span className="w-5 h-0.5 bg-[#E8001C] inline-block flex-shrink-0" />
-      {children}
-    </span>
-  );
-}
-

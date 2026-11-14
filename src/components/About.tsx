@@ -1,118 +1,113 @@
-"use client";
-
 import Image from "next/image";
-import { useReveal } from "@/hooks/useReveal";
+import Link from "next/link";
 
 export default function About() {
-  const ref = useReveal();
-
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div
-          ref={ref as React.RefObject<HTMLDivElement>}
-          className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
-        >
-          {/* Images Stack */}
-          <div className="relative">
-            {/* Badge */}
-            <div className="absolute -top-5 -left-5 z-20 bg-[#E8001C] text-white px-5 py-4 rounded shadow-[0_8px_25px_rgba(232,0,28,0.4)] text-center">
-              <span className="block font-[var(--font-montserrat)] font-black text-3xl leading-none">2020</span>
-              <span className="block font-[var(--font-montserrat)] font-semibold text-[0.6rem] tracking-[1.5px] uppercase opacity-85 mt-0.5">Year Founded</span>
+    <section className="py-20 bg-offwhite overflow-hidden">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Images Grid */}
+          <div className="relative order-2 lg:order-1">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl col-span-2">
+                <Image
+                  src="/images/kericho-finish.jpg"
+                  alt="Kerumbe athletes at the Kericho Cross Country finish line"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <span className="font-heading font-bold text-sm bg-red px-3 py-1 rounded">
+                    Kericho Cross Country
+                  </span>
+                </div>
+              </div>
+              <div className="relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/athletes-track.jpg"
+                  alt="Athletes on competition field"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-48 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/team-outdoor.jpg"
+                  alt="Team strategy session"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
 
-            {/* Main image */}
-            <div className="relative h-[420px] rounded overflow-hidden shadow-2xl">
-              <Image
-                src="/images/team-outdoor.jpg"
-                alt="Kerumbe team outdoor"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-
-            {/* Accent image */}
-            <div className="absolute -bottom-10 -right-5 lg:-right-10 w-[55%] h-[220px] rounded overflow-hidden border-[6px] border-white shadow-xl z-10">
-              <Image
-                src="/images/coaches-street.jpg"
-                alt="Coaches meeting"
-                fill
-                className="object-cover"
-                sizes="30vw"
-              />
+            {/* Floating badge */}
+            <div className="absolute -bottom-5 -right-3 md:right-6 bg-white rounded-2xl shadow-xl p-5 text-center">
+              <div className="font-heading font-black text-4xl text-red">2020</div>
+              <div className="font-heading font-bold text-xs text-charcoal uppercase tracking-wider mt-1">
+                Founded
+              </div>
             </div>
           </div>
 
           {/* Text */}
-          <div className="mt-12 lg:mt-0">
-            <SectionLabel>Who We Are</SectionLabel>
-            <h2 className="font-[var(--font-montserrat)] font-bold text-3xl lg:text-4xl text-[#0D0D0D] leading-tight mb-5">
-              Bridging the Gap for{" "}
-              <span className="text-[#E8001C]">Rural Sports Talent</span>
+          <div className="order-1 lg:order-2">
+            <p className="section-label">About Kerumbe</p>
+            <h2 className="section-title mb-6">
+              Nurturing Champions From the Heart of{" "}
+              <span className="text-red">Rural Kenya</span>
             </h2>
-            <p className="text-[#555] leading-relaxed mb-4">
-              Founded by Chairman <strong>Steve Makwae Gekara</strong>, Kerumbe Athletics
-              Sports Club was born from a simple but powerful conviction: that Kenya&apos;s most
-              talented young runners are often found not in city academies, but in the
-              countryside — waiting for someone to give them a chance.
-            </p>
-            <p className="text-[#555] leading-relaxed mb-7">
-              We work with gifted young student-athletes from rural primary and secondary
-              schools across Kenya, providing everything they need to train, compete, grow,
-              and thrive — without ever sacrificing their education.
-            </p>
 
-            <div className="flex flex-col gap-3 mb-8">
-              <ValueCard icon="🎯" title="Our Mission">
-                To nurture rural athletics talent through holistic support — from shoes to schoolbooks.
-              </ValueCard>
-              <ValueCard icon="👁" title="Our Vision">
-                A Kenya where every talented rural athlete has an equal opportunity to reach the world stage.
-              </ValueCard>
+            <div className="space-y-4 text-muted text-base leading-relaxed mb-8">
+              <p>
+                Founded in 2020 by{" "}
+                <strong className="text-charcoal">Chairman Steve Makwae Gekara</strong>,
+                Kerumbe Athletics Sports Club was born from a simple but powerful
+                belief: that Kenya&apos;s greatest runners are hiding in its rural
+                primary and secondary schools, waiting only for the opportunity to
+                be discovered.
+              </p>
+              <p>
+                We provide holistic support — running gear, structured coaching,
+                nutritious meals, academic mentorship, and competition access — to
+                young athletes from Kericho County and beyond.
+              </p>
+              <p>
+                Our philosophy is uncompromising:{" "}
+                <strong className="text-charcoal">education comes first.</strong> Every
+                athlete we support remains enrolled in school, because we believe the
+                greatest champions are those who win both on the track and in life.
+              </p>
             </div>
 
-            <a
-              href="#programs"
-              className="inline-block bg-[#E8001C] text-white font-[var(--font-montserrat)] font-bold px-7 py-3 rounded text-sm tracking-wide hover:bg-[#B30016] transition-colors"
-            >
-              See Our Programs →
-            </a>
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {[
+                { n: "50+", label: "Athletes Supported" },
+                { n: "3+", label: "Counties Reached" },
+                { n: "100%", label: "School Enrolment" },
+                { n: "5+", label: "Events Participated" },
+              ].map((s) => (
+                <div key={s.label} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                  <div className="font-heading font-black text-2xl text-red">{s.n}</div>
+                  <div className="font-heading font-semibold text-xs text-charcoal uppercase tracking-wider mt-1">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link href="/about" className="btn-red">
+                Read Our Full Story
+              </Link>
+              <Link href="/what-we-do" className="btn-outline">
+                What We Do
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-3 font-[var(--font-montserrat)] font-bold text-[0.72rem] tracking-[3px] uppercase text-[#E8001C] mb-3">
-      <span className="w-5 h-0.5 bg-[#E8001C] inline-block flex-shrink-0" />
-      {children}
-    </span>
-  );
-}
-
-function ValueCard({
-  icon,
-  title,
-  children,
-}: {
-  icon: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex items-start gap-4 p-4 border-l-4 border-[#E8001C] bg-[#F5F5F5] rounded-r">
-      <span className="text-2xl flex-shrink-0 mt-0.5">{icon}</span>
-      <div>
-        <strong className="block font-[var(--font-montserrat)] text-sm text-[#0D0D0D] mb-1">
-          {title}
-        </strong>
-        <p className="text-[#555] text-sm leading-relaxed m-0">{children}</p>
-      </div>
-    </div>
-  );
-}
-
