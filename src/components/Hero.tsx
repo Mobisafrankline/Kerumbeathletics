@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { HERO_SLIDES, HERO_STATS } from "@/data/siteData";
 
@@ -24,22 +25,29 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100svh] lg:h-[calc(100vh-4rem)] lg:min-h-[660px] lg:max-h-[900px] flex flex-col justify-between overflow-hidden bg-black">
-      {/* Background Slides with smooth fade & Ken Burns effect */}
+      {/* Background Slides with Next.js Image component */}
       {HERO_SLIDES.map((src, i) => (
         <div
           key={src}
-          className={`hero-slide transition-all duration-1000 ${
-            i === current ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            i === current ? "opacity-100 z-0" : "opacity-0 -z-10 pointer-events-none"
           }`}
-          style={{
-            backgroundImage: `url(${src})`,
-          }}
-        />
+        >
+          <Image
+            src={src}
+            alt="Kerumbe Athletics runners in action"
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            quality={90}
+            className="object-cover object-center"
+          />
+        </div>
       ))}
 
-      {/* Dynamic Gradients for cinematic readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/35 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40 pointer-events-none" />
+      {/* Dynamic Gradients for cinematic readability while letting the photos shine */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20 z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25 z-[1] pointer-events-none" />
 
       {/* Red accent line at the top */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-red z-20 pointer-events-none" />
