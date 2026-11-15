@@ -6,9 +6,7 @@ import About from "@/components/About";
 import Programs from "@/components/Programs";
 import Impact from "@/components/Impact";
 import Gallery from "@/components/Gallery";
-import Donate from "@/components/Donate";
 import Newsletter from "@/components/Newsletter";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
@@ -23,9 +21,7 @@ export default function HomePage() {
       <Programs />
       <Impact />
       <Gallery />
-      <Donate />
       <Newsletter />
-      <Contact />
       <Footer />
       <BackToTop />
     </main>
