@@ -36,7 +36,7 @@ export default function WhereWeOperatePage() {
               </h2>
               <p className="text-muted text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
                 Kenya&apos;s greatest endurance runners have historically emerged from the high-altitude
-                regions of the Rift Valley and Kenyan Highlands — and Kerumbe Athletics is rooted in this same
+                regions of the Rift Valley and Kenyan Highlands, and Kerumbe Athletics is rooted in this same
                 legendary running country. Our primary base and headquarters is in <strong>Nyamira County</strong>,
                 with active operations and talent pipelines across <strong>Nyamira, Kisii, Kericho, and Bomet Counties</strong>.
               </p>
@@ -98,7 +98,7 @@ export default function WhereWeOperatePage() {
                 <h3 className="font-heading font-black text-lg mb-3">Highland Altitude Advantage</h3>
                 <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
                   Nyamira County sits at approximately 1,900m to 2,100m above sea level in the
-                  Kenyan Highlands — ideal natural altitude that builds exceptional cardiovascular endurance
+                  Kenyan Highlands, offering ideal natural altitude that builds exceptional cardiovascular endurance
                   and red blood cell efficiency. Our athletes train in this natural high-performance
                   environment every day.
                 </p>

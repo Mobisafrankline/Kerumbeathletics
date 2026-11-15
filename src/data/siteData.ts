@@ -221,7 +221,7 @@ export const STORIES: Story[] = [
       "Tackling grueling Rift Valley elevation and muddy terrain to establish Kerumbe as a premier grassroots sports club.",
     content: [
       "High-altitude cross-country and marathon racing is the true proving ground of Kenyan distance legends. At the Kericho Marathon - 2026 and regional championships, Kerumbe fielded junior and senior competitors.",
-      "Equipped with proper track footwear and uniforms, our runners tackled the grueling terrain with unwavering grit. Crossing that finish line was not just an athletic milestone — it was living proof that grassroots investment from Nyamira County into our regional athletes creates national-calibre competitors.",
+      "Equipped with proper track footwear and uniforms, our runners tackled the grueling terrain with unwavering grit. Crossing that finish line was not just an athletic milestone, it was living proof that grassroots investment from Nyamira County into our regional athletes creates national-calibre competitors.",
     ],
   },
   {
@@ -304,7 +304,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     src: "/images/kericho-college.jpg",
     alt: "Chairman and young athletes outside Kericho Teachers College",
-    caption: "Education First — School & College Linkages",
+    caption: "Education First: School & College Linkages",
     category: "training",
   },
   {

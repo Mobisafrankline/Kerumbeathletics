@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Kerumbe Athletics Sports Club",
   },
   description:
-    "Kerumbe Athletics Sports Club is a grassroots Kenyan sports initiative founded by Steve Makwae Gekara. We discover, train, and support gifted young runners from rural primary and secondary schools across Kenya — providing running gear, nutrition, academic mentorship, and marathon competition access while keeping education at the core.",
+    "Kerumbe Athletics Sports Club is a grassroots Kenyan sports initiative founded by Steve Makwae Gekara. We discover, train, and support gifted young runners from rural primary and secondary schools across Kenya, providing running gear, nutrition, academic mentorship, and marathon competition access while keeping education at the core.",
   applicationName: "Kerumbe Athletics",
   authors: [{ name: "Steve Makwae Gekara", url: siteUrl }],
   keywords: [

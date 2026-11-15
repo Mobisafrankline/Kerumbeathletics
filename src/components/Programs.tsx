@@ -13,7 +13,7 @@ export default function Programs() {
             Comprehensive Support for <span className="text-red">Every Athlete</span>
           </h2>
           <p className="text-muted text-sm sm:text-base leading-relaxed">
-            We don&apos;t just train runners — we build futures. Our programs cover every
+            We do not just train runners, we build futures. Our programs cover every
             dimension of an athlete&apos;s life.
           </p>
         </div>

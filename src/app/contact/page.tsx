@@ -27,7 +27,7 @@ export default function ContactPage() {
       <Navbar />
       <PageHero
         title="Contact Us"
-        subtitle="Whether you want to sponsor, volunteer, partner, or simply learn more — our door is always open."
+        subtitle="Whether you want to sponsor, volunteer, partner, or simply learn more, our door is always open."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         image="/images/team-outdoor.jpg"
       />

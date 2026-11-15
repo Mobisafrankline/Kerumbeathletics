@@ -69,8 +69,8 @@ export default function About() {
                 be discovered.
               </p>
               <p>
-                We provide holistic support — running gear, structured coaching,
-                nutritious meals, academic mentorship, and competition access — to
+                We provide holistic support including running gear, structured coaching,
+                nutritious meals, academic mentorship, and competition access to
                 young athletes from Nyamira County and beyond.
               </p>
               <p>

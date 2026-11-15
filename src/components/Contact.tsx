@@ -16,7 +16,7 @@ export default function Contact() {
             </h2>
             <p className="text-muted text-base leading-relaxed mb-8">
               Whether you want to sponsor an athlete, volunteer your time,
-              or simply learn more about our work — we would love to hear from you.
+              or simply learn more about our work, we would love to hear from you.
             </p>
 
             <div className="space-y-4 mb-8">

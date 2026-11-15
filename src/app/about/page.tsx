@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 
 const VALUES = [
   { num: "01", title: "Education First", desc: "Every athlete remains enrolled in school. Athletics is the vehicle; education is the permanent foundation." },
-  { num: "02", title: "Excellence in Sport", desc: "We demand the best from our athletes — structured training, elite coaching, and competition exposure." },
+  { num: "02", title: "Excellence in Sport", desc: "We demand the best from our athletes through structured training, elite coaching, and competition exposure." },
   { num: "03", title: "Integrity & Fair Play", desc: "Clean sport. No performance-enhancing substances. We teach that true victory is earned honestly." },
   { num: "04", title: "Community & Family", desc: "We are more than a club. We are a family that cares for each other on and off the track." },
   { num: "05", title: "Equal Opportunity", desc: "Talent knows no gender. We actively support and empower female and male athletes equally." },
-  { num: "06", title: "Holistic Development", desc: "Mental health, nutrition, and mentorship — we develop the whole person, not just the runner." },
+  { num: "06", title: "Holistic Development", desc: "Mental health, nutrition, and mentorship to develop the whole person, not just the runner." },
 ];
 
 export default function AboutPage() {
@@ -137,10 +137,10 @@ export default function AboutPage() {
                   athletes competing at regional and national events.
                 </p>
                 <p className="italic text-gray-200">
-                  &ldquo;Every child who runs in our club runs toward a better future —
+                  &ldquo;Every child who runs in our club runs toward a better future
                   for themselves, their families, and their communities.&rdquo;
                 </p>
-                <div className="pt-1 font-heading font-bold text-red text-sm">— Steve Makwae Gekara</div>
+                <div className="pt-1 font-heading font-bold text-red text-sm">Steve Makwae Gekara, Chairman &amp; Founder</div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8">
                 <a href="tel:+254790700228" className="btn-red justify-center text-center">

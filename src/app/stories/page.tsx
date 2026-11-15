@@ -10,7 +10,7 @@ import { STORIES, MILESTONES } from "@/data/siteData";
 export const metadata: Metadata = {
   title: "Stories & Impact",
   description:
-    "Read the impact stories of Kerumbe Athletics — how young Kenyan runners from rural schools are transforming their lives through sport and education.",
+    "Read the impact stories of Kerumbe Athletics and how young Kenyan runners from rural schools are transforming their lives through sport and education.",
 };
 
 export default function StoriesPage() {
@@ -20,7 +20,7 @@ export default function StoriesPage() {
       <Navbar />
       <PageHero
         title="Stories & Impact"
-        subtitle="Real stories of transformation — from barefoot training on red dirt roads to competing on Kenya's national stage."
+        subtitle="Real stories of transformation, from barefoot training on red dirt roads to competing on Kenya's national stage."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Stories & Impact" }]}
         image="/images/belgut-finish-gantry.jpg"
       />

@@ -19,7 +19,7 @@ export default function Gallery() {
             Moments That <span className="text-red">Define Us</span>
           </h2>
           <p className="text-muted text-sm leading-relaxed">
-            From pre-dawn training sessions to championship finish lines —
+            From pre-dawn training sessions to championship finish lines,
             glimpses of the Kerumbe journey.
           </p>
         </div>

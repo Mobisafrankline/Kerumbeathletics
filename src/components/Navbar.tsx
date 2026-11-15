@@ -63,7 +63,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Clean, Single-line, No Wrapping */}
+          {/* Desktop Navigation - Clean, Single-line, No Wrapping, No Dash */}
           <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-2 flex-shrink min-w-0">
             {NAV_LINKS.map((link) => {
               const isActive =
@@ -72,12 +72,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-2 xl:px-2.5 py-1.5 font-heading font-bold text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] uppercase tracking-wide whitespace-nowrap rounded transition-colors duration-150 ${
+                  className={`px-2.5 xl:px-3 py-1.5 font-heading font-bold text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] uppercase tracking-wide whitespace-nowrap rounded-md transition-all duration-150 ${
                     isActive
-                      ? "text-red"
-                      : "text-charcoal-dark hover:text-red"
-                  } after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:bg-red after:transition-all after:duration-200 ${
-                    isActive ? "after:opacity-100" : "after:opacity-0 hover:after:opacity-100"
+                      ? "text-red bg-red/5"
+                      : "text-charcoal-dark hover:text-red hover:bg-gray-50"
                   }`}
                 >
                   {link.label}
@@ -173,14 +171,14 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center justify-between px-5 py-3 font-heading font-bold text-xs uppercase tracking-wider border-l-4 transition-colors duration-150 ${
+                className={`flex items-center justify-between px-4 py-3 mx-2 font-heading font-bold text-xs uppercase tracking-wider rounded-lg transition-colors duration-150 ${
                   isActive
-                    ? "border-red text-red bg-red/5"
-                    : "border-transparent text-charcoal-dark hover:border-red hover:text-red hover:bg-gray-50"
+                    ? "text-red bg-red/10"
+                    : "text-charcoal-dark hover:text-red hover:bg-gray-50"
                 }`}
               >
                 <span>{link.label}</span>
-                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-red" />}
+                {isActive && <span className="w-2 h-2 rounded-full bg-red" />}
               </Link>
             );
           })}
