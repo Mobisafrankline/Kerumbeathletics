@@ -26,6 +26,7 @@ export const NAV_LINKS: NavLink[] = [
 
 export const HERO_SLIDES: string[] = [
   "/images/belgut-finish-gantry.jpg",
+  "/images/club-uniforms-kit.jpg",
   "/images/belgut-kemboi-2026.jpg",
   "/images/kericho-finish.jpg",
   "/images/athletes-track.jpg",
@@ -74,10 +75,10 @@ export const PROGRAMS: Program[] = [
     description:
       "Most gifted runners in rural primary and secondary schools run barefoot or in worn-out school shoes on rough dirt tracks. We equip our young runners with proper running shoes, racing vests, tracksuits, socks, and training spikes so they can practice safely, prevent injuries, and step onto competition tracks with pride and dignity.",
     highlights: [
-      "Quality road & cross-country running shoes",
-      "Official Kerumbe team racing uniforms",
+      "Official Kerumbe printed training vests & race bibs (Blue & Orange)",
+      "Official embroidered club caps and all-weather track jackets",
+      "Quality road & cross-country distance running shoes",
       "Injury prevention & orthopedic footwear support",
-      "Training bags, socks, and weather protection wear",
     ],
   },
   {
@@ -241,6 +242,31 @@ export const STORIES: Story[] = [
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
+    src: "/images/club-uniforms-kit.jpg",
+    alt: "Official Kerumbe Athletics Sports Club uniform kits, training bibs, caps and track jackets",
+    caption: "Official Kerumbe Club Uniforms & Kits Collection",
+    category: "training",
+    large: true,
+  },
+  {
+    src: "/images/uniform-blue-bib.jpg",
+    alt: "Official royal blue Kerumbe Athletics Sports Club training and racing bib",
+    caption: "Official Royal Blue Training & Race Bib",
+    category: "training",
+  },
+  {
+    src: "/images/uniform-orange-bib.jpg",
+    alt: "Official high-visibility orange Kerumbe Athletics Sports Club competition bib",
+    caption: "Official High-Visibility Competition Bib",
+    category: "training",
+  },
+  {
+    src: "/images/club-cap-black.jpg",
+    alt: "Official embroidered black Kerumbe Athletics Sports Club cap",
+    caption: "Official Embroidered Club Cap",
+    category: "training",
+  },
+  {
     src: "/images/belgut-finish-gantry.jpg",
     alt: "Kerumbe athlete under the Belgut Marathon 2026 Finish arch",
     caption: "Belgut Marathon - 2026 Finish Line",
@@ -382,6 +408,12 @@ export const CONTACT_INFO: ContactInfo[] = [
     label: "Email Inquiries",
     value: "stevegekara04@gmail.com",
     href: "mailto:stevegekara04@gmail.com",
+  },
+  {
+    icon: "PayPal",
+    label: "PayPal (International Donations)",
+    value: "stevegekara04@gmail.com",
+    href: "mailto:stevegekara04@gmail.com?subject=PayPal Donation to Kerumbe Athletics",
   },
   {
     icon: "Web",

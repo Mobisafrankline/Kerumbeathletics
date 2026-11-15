@@ -34,8 +34,8 @@ export default function About() {
               </div>
               <div className="relative h-40 sm:h-48 rounded-xl sm:rounded-2xl overflow-hidden shadow-md">
                 <Image
-                  src="/images/team-outdoor.jpg"
-                  alt="Team strategy session"
+                  src="/images/club-uniforms-kit.jpg"
+                  alt="Official Kerumbe team uniforms and kits"
                   fill
                   className="object-cover"
                 />

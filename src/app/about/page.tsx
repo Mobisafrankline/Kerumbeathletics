@@ -67,7 +67,13 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="relative h-56 sm:h-64 col-span-2 rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/images/team-outdoor.jpg" alt="Kerumbe Athletics team meeting" fill className="object-cover" />
+                <Image src="/images/club-uniforms-kit.jpg" alt="Official Kerumbe Athletics team uniforms and kits" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-3 left-3 text-white">
+                  <span className="font-heading font-bold text-xs bg-red px-2.5 py-1 rounded shadow">
+                    Official Kerumbe Team Kits &amp; Uniforms
+                  </span>
+                </div>
               </div>
               <div className="relative h-40 sm:h-48 rounded-xl overflow-hidden shadow-md">
                 <Image src="/images/kericho-college.jpg" alt="Kericho education partnership" fill className="object-cover" />

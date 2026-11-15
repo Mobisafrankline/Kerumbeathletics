@@ -132,12 +132,37 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6 p-4 bg-white/5 border border-white/10 rounded-xl">
-              <div className="font-heading font-bold text-xs text-red uppercase tracking-wider mb-1">
-                Direct M-Pesa
+            <div className="mt-6 space-y-2.5">
+              {/* M-Pesa Card */}
+              <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-heading font-bold text-[10px] text-emerald-400 uppercase tracking-wider">
+                    M-Pesa (Kenya)
+                  </span>
+                  <span className="bg-emerald-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded">
+                    M-PESA
+                  </span>
+                </div>
+                <div className="font-heading font-black text-lg text-white">0790 700228</div>
+                <div className="text-gray-400 text-[10.5px]">Steve Makwae Gekara</div>
               </div>
-              <div className="font-heading font-black text-xl text-white">0790 700228</div>
-              <div className="text-gray-400 text-xs mt-0.5">Steve Makwae Gekara (Chairman)</div>
+
+              {/* PayPal Card */}
+              <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-heading font-bold text-[10px] text-[#0079C1] uppercase tracking-wider">
+                    PayPal (Global)
+                  </span>
+                  <div className="flex items-center gap-1 bg-[#003087] text-white px-1.5 py-0.5 rounded">
+                    <svg className="w-3 h-3 fill-current text-[#0079C1]" viewBox="0 0 24 24">
+                      <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.789.789 0 0 1 .778-.658h6.812c3.486 0 6.04 1.344 5.753 5.437-.306 4.364-2.88 6.438-6.19 6.438H8.814l-.995 5.67a.64.64 0 0 1-.743.73z" />
+                    </svg>
+                    <span className="font-heading font-bold text-[9px]">PayPal</span>
+                  </div>
+                </div>
+                <div className="font-heading font-bold text-xs text-white break-all">stevegekara04@gmail.com</div>
+                <div className="text-gray-400 text-[10.5px]">Global Card &amp; Balance</div>
+              </div>
             </div>
           </div>
         </div>

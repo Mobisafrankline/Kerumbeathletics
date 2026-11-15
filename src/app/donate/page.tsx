@@ -15,6 +15,7 @@ export default function DonatePage() {
   const [currency, setCurrency] = useState<"KES" | "USD">("KES");
   const [customAmount, setCustomAmount] = useState<number | string>(2000);
   const [copied, setCopied] = useState(false);
+  const [copiedPaypal, setCopiedPaypal] = useState(false);
 
   const numeric = typeof customAmount === "string" ? parseFloat(customAmount) || 0 : customAmount;
 
@@ -33,6 +34,12 @@ export default function DonatePage() {
     navigator.clipboard.writeText("0790700228");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const copyPaypal = () => {
+    navigator.clipboard.writeText("stevegekara04@gmail.com");
+    setCopiedPaypal(true);
+    setTimeout(() => setCopiedPaypal(false), 2000);
   };
 
   return (
@@ -152,47 +159,129 @@ export default function DonatePage() {
               </p>
             </div>
 
-            {/* Direct M-Pesa Instruction */}
-            <div className="bg-charcoal-dark text-white rounded-2xl p-5 sm:p-8">
-              <div className="text-xs font-heading font-bold uppercase tracking-wider text-red mb-2">
-                Payment Option 1: Mobile Money
-              </div>
-              <h3 className="font-heading font-black text-xl sm:text-2xl mb-4 leading-tight">
-                Send via M-Pesa to Chairman Steve Makwae
-              </h3>
+            {/* Payment Options Grid (M-Pesa & PayPal) */}
+            <div className="grid md:grid-cols-2 gap-5 mb-6">
 
-              <div className="bg-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-5">
+              {/* Option 1: M-Pesa */}
+              <div className="bg-charcoal-dark text-white rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs text-gray-400 block">M-Pesa Number</span>
-                  <span className="font-heading font-black text-2xl text-white tracking-wide">
-                    0790 700228
-                  </span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+                      Mobile Money
+                    </span>
+                    {/* M-Pesa Icon */}
+                    <div className="flex items-center gap-1.5 bg-emerald-600 text-white font-black text-xs px-2.5 py-1 rounded">
+                      <span>M-PESA</span>
+                    </div>
+                  </div>
+
+                  <h3 className="font-heading font-black text-xl text-white mb-2 leading-tight">
+                    Send via Safaricom M-Pesa
+                  </h3>
+                  <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                    Direct local contribution to Chairman Steve Makwae Gekara for immediate athlete welfare.
+                  </p>
+
+                  <div className="bg-white/10 p-3.5 rounded-xl mb-4">
+                    <span className="text-[10px] text-gray-400 block uppercase font-heading font-semibold">M-Pesa Number</span>
+                    <span className="font-heading font-black text-2xl text-white tracking-wider">
+                      0790 700228
+                    </span>
+                  </div>
+
+                  <div className="space-y-1.5 text-xs text-gray-300 mb-5">
+                    <div className="flex justify-between border-b border-white/5 pb-1">
+                      <span className="text-gray-400">Account Name:</span>
+                      <span className="font-bold text-white">Steve Makwae Gekara</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Reference:</span>
+                      <span className="font-bold text-white">Kerumbe Donation</span>
+                    </div>
+                  </div>
                 </div>
-                <button
-                  type="button"
-                  onClick={copyNumber}
-                  className="px-5 py-2.5 bg-red hover:bg-red-dark text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer text-center"
-                >
-                  {copied ? "Copied" : "Copy Number"}
-                </button>
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={copyNumber}
+                    className="flex-1 py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow"
+                  >
+                    <span>{copied ? "Copied!" : "Copy Number"}</span>
+                  </button>
+                  <a
+                    href="tel:+254790700228"
+                    className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors text-center"
+                  >
+                    Call
+                  </a>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-6">
-                <div className="bg-white/5 p-3.5 rounded-xl border border-white/10">
-                  <span className="text-gray-400 block mb-0.5">Name on Account</span>
-                  <span className="font-heading font-bold text-white text-sm">Steve Makwae Gekara</span>
+              {/* Option 2: PayPal */}
+              <div className="bg-charcoal-dark text-white rounded-2xl p-5 sm:p-6 border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-[#0079C1] bg-[#0079C1]/10 border border-[#0079C1]/20 px-2.5 py-1 rounded-full">
+                      International Giving
+                    </span>
+                    {/* Official PayPal Badge & SVG */}
+                    <div className="flex items-center gap-1 bg-[#003087] text-white px-2.5 py-1 rounded shadow-sm">
+                      <svg className="w-4 h-4 fill-current text-[#0079C1]" viewBox="0 0 24 24">
+                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.789.789 0 0 1 .778-.658h6.812c3.486 0 6.04 1.344 5.753 5.437-.306 4.364-2.88 6.438-6.19 6.438H8.814l-.995 5.67a.64.64 0 0 1-.743.73z" />
+                        <path d="M9.814 14.937l1.042-5.937h2.898c2.977 0 4.885 1.157 4.545 4.793-.306 3.267-2.316 4.887-5.185 4.887h-2.557a.64.64 0 0 1-.743-.743v-3z" fill="#0079C1" />
+                      </svg>
+                      <span className="font-heading font-bold text-xs tracking-tight">PayPal</span>
+                    </div>
+                  </div>
+
+                  <h3 className="font-heading font-black text-xl text-white mb-2 leading-tight">
+                    Send via PayPal
+                  </h3>
+                  <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                    Send donations securely from anywhere in the world using your PayPal balance or credit/debit card.
+                  </p>
+
+                  <div className="bg-white/10 p-3.5 rounded-xl mb-4">
+                    <span className="text-[10px] text-gray-400 block uppercase font-heading font-semibold">PayPal Email</span>
+                    <span className="font-heading font-bold text-base sm:text-lg text-white break-all tracking-wide">
+                      stevegekara04@gmail.com
+                    </span>
+                  </div>
+
+                  <div className="space-y-1.5 text-xs text-gray-300 mb-5">
+                    <div className="flex justify-between border-b border-white/5 pb-1">
+                      <span className="text-gray-400">Recipient Name:</span>
+                      <span className="font-bold text-white">Steve Makwae Gekara</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-400">Supported:</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="px-1.5 py-0.5 bg-white/10 rounded text-[9.5px] font-bold text-gray-200">Visa</span>
+                        <span className="px-1.5 py-0.5 bg-white/10 rounded text-[9.5px] font-bold text-gray-200">Mastercard</span>
+                        <span className="px-1.5 py-0.5 bg-white/10 rounded text-[9.5px] font-bold text-gray-200">Amex</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-white/5 p-3.5 rounded-xl border border-white/10">
-                  <span className="text-gray-400 block mb-0.5">Reference / Account</span>
-                  <span className="font-heading font-bold text-white text-sm">Kerumbe Donation</span>
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={copyPaypal}
+                    className="flex-1 py-3 px-4 bg-[#0079C1] hover:bg-[#005ea6] text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow"
+                  >
+                    <span>{copiedPaypal ? "Email Copied!" : "Copy PayPal Email"}</span>
+                  </button>
+                  <a
+                    href="mailto:stevegekara04@gmail.com?subject=PayPal Donation to Kerumbe Athletics"
+                    className="py-3 px-4 bg-white/10 hover:bg-white/20 text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors text-center"
+                  >
+                    Email
+                  </a>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a href="tel:+254790700228" className="btn-red text-xs py-3.5 px-6 justify-center text-center">
-                  Call Chairman Steve
-                </a>
-              </div>
             </div>
 
           </div>
@@ -241,28 +330,28 @@ export default function DonatePage() {
             ))}
           </div>
 
-          {/* International & Bank Transfers */}
-          <div className="bg-offwhite rounded-3xl p-8 sm:p-10 border border-gray-200 max-w-3xl mx-auto">
+          {/* Option 3: Bank Transfers & Corporate CSR */}
+          <div className="bg-offwhite rounded-3xl p-6 sm:p-10 border border-gray-200 max-w-3xl mx-auto shadow-sm">
             <div className="text-xs font-heading font-bold uppercase tracking-wider text-red mb-2">
-              Payment Option 2: Bank &amp; International
+              Payment Option 3: Direct Bank Wire &amp; Corporate Giving
             </div>
             <h3 className="font-heading font-black text-2xl text-charcoal-dark mb-3">
-              Bank Wire, PayPal &amp; Corporate CSR
+              Official Bank Wire &amp; CSR Sponsorships
             </h3>
             <p className="text-muted text-sm leading-relaxed mb-6">
-              For direct bank transfers, international wire transfers, or corporate sponsorships,
-              please reach out to us and we will provide our bank account details and official receipt.
+              For direct bank deposits, institutional wire transfers, or corporate CSR partnerships,
+              please reach out to Chairman Steve Makwae Gekara for official bank account details and tax receipts.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="mailto:stevegekara04@gmail.com?subject=Corporate or International Donation - Kerumbe Athletics"
-                className="btn-red"
+                className="btn-red justify-center text-center"
               >
-                Email For Bank Details
+                Email For Bank Wire Details
               </a>
               <a
                 href="tel:+254790700228"
-                className="btn-outline"
+                className="btn-outline justify-center text-center"
               >
                 Call +254 790 700228
               </a>

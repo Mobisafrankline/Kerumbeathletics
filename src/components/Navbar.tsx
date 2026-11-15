@@ -55,16 +55,16 @@ export default function Navbar() {
             </div>
             <div className="leading-tight flex-shrink-0">
               <span className="block font-heading font-black text-base sm:text-lg text-charcoal-dark tracking-tight group-hover:text-red transition-colors duration-200">
-                KERUMBE
+                Kerumbe
               </span>
-              <span className="block font-heading font-bold text-[9px] text-red tracking-[1.8px] uppercase">
+              <span className="block font-heading font-semibold text-[10px] text-red">
                 Athletics Sports Club
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation - Clean, Single-line, No Wrapping, No Dash */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-2 flex-shrink min-w-0">
+          {/* Desktop Navigation - Clean, Single-line, No Wrapping, Small Letters */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 2xl:gap-2 flex-shrink min-w-0">
             {NAV_LINKS.map((link) => {
               const isActive =
                 link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -72,9 +72,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-2.5 xl:px-3 py-1.5 font-heading font-bold text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] uppercase tracking-wide whitespace-nowrap rounded-md transition-all duration-150 ${
+                  className={`px-2.5 xl:px-3 py-1.5 font-heading font-semibold text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap rounded-md transition-all duration-150 ${
                     isActive
-                      ? "text-red bg-red/5"
+                      ? "text-red bg-red/5 font-bold"
                       : "text-charcoal-dark hover:text-red hover:bg-gray-50"
                   }`}
                 >
@@ -88,7 +88,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center flex-shrink-0">
             <Link
               href="/donate"
-              className="bg-red hover:bg-red-dark text-white px-4 py-2 rounded font-heading font-bold text-[11px] xl:text-xs uppercase tracking-wider transition-colors duration-150 shadow-sm whitespace-nowrap"
+              className="bg-red hover:bg-red-dark text-white px-4 py-2 rounded-md font-heading font-semibold text-xs xl:text-sm transition-colors duration-150 shadow-sm whitespace-nowrap"
             >
               Donate
             </Link>
@@ -148,8 +148,8 @@ export default function Navbar() {
               />
             </div>
             <div>
-              <span className="block font-heading font-black text-sm text-charcoal-dark">KERUMBE</span>
-              <span className="block font-heading font-bold text-[8.5px] text-red tracking-[1.5px] uppercase">Athletics Sports Club</span>
+              <span className="block font-heading font-black text-sm text-charcoal-dark">Kerumbe</span>
+              <span className="block font-heading font-semibold text-[9.5px] text-red">Athletics Sports Club</span>
             </div>
           </div>
           <button
@@ -162,7 +162,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links - Small Letters */}
         <nav className="flex-1 overflow-y-auto py-3">
           {NAV_LINKS.map((link) => {
             const isActive =
@@ -171,9 +171,9 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center justify-between px-4 py-3 mx-2 font-heading font-bold text-xs uppercase tracking-wider rounded-lg transition-colors duration-150 ${
+                className={`flex items-center justify-between px-4 py-3 mx-2 font-heading font-semibold text-sm rounded-lg transition-colors duration-150 ${
                   isActive
-                    ? "text-red bg-red/10"
+                    ? "text-red bg-red/10 font-bold"
                     : "text-charcoal-dark hover:text-red hover:bg-gray-50"
                 }`}
               >
@@ -188,7 +188,7 @@ export default function Navbar() {
         <div className="p-4 border-t border-gray-100 bg-gray-50 space-y-2.5">
           <Link
             href="/donate"
-            className="block w-full text-center bg-red hover:bg-red-dark text-white py-3 rounded font-heading font-bold text-xs uppercase tracking-wider transition-colors"
+            className="block w-full text-center bg-red hover:bg-red-dark text-white py-3 rounded-md font-heading font-semibold text-sm transition-colors shadow-sm"
             onClick={() => setMenuOpen(false)}
           >
             Donate to Kerumbe

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const PILLAR_IMAGES = [
-  { src: "/images/belgut-runner-medal.jpg", caption: "Gear & Equipment Support" },
+  { src: "/images/club-uniforms-kit.jpg", caption: "Official Club Uniform Kits, Bibs & Tracksuits" },
   { src: "/images/athletes-track.jpg", caption: "Structured Daily Training" },
   { src: "/images/kericho-college.jpg", caption: "Academic Mentorship" },
   { src: "/images/belgut-kemboi-2026.jpg", caption: "Mentorship with Olympic Champion Ezekiel Kemboi" },
