@@ -6,12 +6,13 @@ Official web platform for **Kerumbe Athletics Sports Club** (Kenya), built with 
 
 ## About the Project
 
-Kerumbe Athletics Sports Club, founded by Chairman **Steve Makwae Gekara**, discovers, mentors, and supports gifted young runners from rural primary and secondary schools across Kenya. The club provides running gear, nutrition, academic mentorship, and access to regional and national competitions (including the Belgut Marathon and Kericho Cross Country), ensuring talent is nurtured without sacrificing academic education.
+Kerumbe Athletics Sports Club, founded by Chairman **Steve Makwae Gekara**, discovers, mentors, and supports gifted young runners from rural primary and secondary schools across Kenya. The club provides running gear, nutrition, academic mentorship, and access to regional and national competitions (including the **Belgut Marathon - 2026** and **Kericho Marathon - 2026**), ensuring talent is nurtured without sacrificing academic education.
 
 - **Website:** [kerumbeathletics.co.ke](https://kerumbeathletics.co.ke)
+- **Primary Base & Headquarters:** Nyamira County, Kenya
+- **Operational Reach:** Nyamira, Kisii, Kericho, and Bomet Counties (Kenyan Highlands & Rift Valley)
 - **M-Pesa Support:** `0790 700228` (Steve Makwae Gekara)
 - **Email Inquiries:** `stevegekara04@gmail.com`
-- **Location:** Kericho County, Rift Valley, Kenya
 
 ---
 
@@ -29,10 +30,10 @@ Kerumbe Athletics Sports Club, founded by Chairman **Steve Makwae Gekara**, disc
 The website features an 8-page responsive structure:
 
 1. **Home (`/`)**: Hero banner with race highlights, dynamic trust ticker, mission introduction, 6 core pillars, impact numbers, photo preview, custom donation calculator, newsletter subscription, and quick contact.
-2. **About Us (`/about`)**: Founding story, history since 2020, core values, and Chairman Steve Makwae Gekara profile.
+2. **About Us (`/about`)**: Founding story, history since 2020 in Nyamira County, core values, and Chairman Steve Makwae Gekara profile.
 3. **What We Do (`/what-we-do`)**: Comprehensive breakdown of our 6 pillars: Running Gear, Coaching, Education, Mentorship, Nutrition & Welfare, and Competition Access.
-4. **Where We Operate (`/where-we-operate`)**: Geographic focus on Kericho County, Bomet County, and the Rift Valley high-altitude running corridor.
-5. **Stories & Impact (`/stories`)**: Milestone timeline (2020 - present) and athlete impact stories from the Belgut Marathon and Kericho Cross Country.
+4. **Where We Operate (`/where-we-operate`)**: Geographic focus on primary base in Nyamira County, with regional outreach across Kericho, Kisii, and Bomet Counties in high-altitude Rift Valley and Gusii highlands.
+5. **Stories & Impact (`/stories`)**: Milestone timeline (2020 - 2026) and athlete impact stories from the Belgut Marathon - 2026 and Kericho Marathon - 2026.
 6. **Gallery (`/gallery`)**: Photo gallery with category filters (All, Competition, Training, Community) and full-screen lightbox.
 7. **Ways to Give (`/donate`)**: Interactive donation calculator supporting open-ended/custom amounts, currency toggle (KES/USD), dynamic impact explanation, direct M-Pesa instructions, and corporate/bank wire details.
 8. **Contact (`/contact`)**: Direct contact details, inquiry form, and ways to partner or volunteer.

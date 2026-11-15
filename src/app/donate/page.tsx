@@ -43,7 +43,7 @@ export default function DonatePage() {
         title="Support Our Athletes"
         subtitle="Give any amount to fund running shoes, coaching, nutritious meals, and education for rural Kenyan runners."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Ways to Give" }]}
-        image="/images/kericho-finish.jpg"
+        image="/images/belgut-finish-gantry.jpg"
       />
 
       {/* Interactive Custom Donation Section */}

@@ -71,7 +71,7 @@ export default function About() {
               <p>
                 We provide holistic support — running gear, structured coaching,
                 nutritious meals, academic mentorship, and competition access — to
-                young athletes from Kericho County and beyond.
+                young athletes from Nyamira County and beyond.
               </p>
               <p>
                 Our philosophy is uncompromising:{" "}

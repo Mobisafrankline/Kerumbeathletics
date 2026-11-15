@@ -115,8 +115,8 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <span className="text-gray-400 block text-xs">Location</span>
-                <span className="text-gray-200">Kericho County, Rift Valley, Kenya</span>
+                <span className="text-gray-400 block text-xs">Primary Base</span>
+                <span className="text-gray-200">Nyamira County, Kenya (Active in Kisii, Kericho &amp; Bomet)</span>
               </li>
               <li>
                 <span className="text-gray-400 block text-xs">Phone</span>
@@ -150,7 +150,7 @@ export default function Footer() {
             &copy; {year} Kerumbe Athletics Sports Club. All rights reserved.
           </p>
           <p className="text-gray-500 text-xs">
-            Kericho County, Kenya &bull;{" "}
+            Nyamira County, Kenya &bull;{" "}
             <a href="mailto:stevegekara04@gmail.com" className="hover:text-red transition-colors">
               stevegekara04@gmail.com
             </a>

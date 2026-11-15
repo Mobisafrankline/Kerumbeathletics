@@ -10,7 +10,7 @@ import BackToTop from "@/components/BackToTop";
 export const metadata: Metadata = {
   title: "Where We Operate",
   description:
-    "Kerumbe Athletics operates primarily in Kericho County, Rift Valley Kenya, reaching athletes across rural primary and secondary schools.",
+    "Kerumbe Athletics operates primarily in Nyamira County, Kenya, reaching athletes across rural primary and secondary schools.",
 };
 
 export default function WhereWeOperatePage() {
@@ -20,7 +20,7 @@ export default function WhereWeOperatePage() {
       <Navbar />
       <PageHero
         title="Where We Operate"
-        subtitle="From the high-altitude hills of Kericho to neighboring Rift Valley counties, we bring athletics to Kenya's rural heartland."
+        subtitle="From the high-altitude hills of Nyamira County to neighboring regions, we bring athletics to Kenya's rural heartland."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Where We Operate" }]}
         image="/images/athletes-track.jpg"
       />
@@ -32,30 +32,35 @@ export default function WhereWeOperatePage() {
             <div>
               <p className="section-label">Our Geographic Reach</p>
               <h2 className="section-title mb-6">
-                High-Altitude <span className="text-red">Rift Valley</span> Athletics
+                High-Altitude <span className="text-red">Nyamira Highland</span> Athletics
               </h2>
               <p className="text-muted text-base leading-relaxed mb-8">
-                Kenya&apos;s greatest runners have historically emerged from the high-altitude
-                regions of the Rift Valley — and Kerumbe Athletics is rooted in this same
-                legendary running country. We operate primarily in Kericho County, with
-                outreach programs extending into neighboring counties.
+                Kenya&apos;s greatest endurance runners have historically emerged from the high-altitude
+                regions of the Rift Valley and Kenyan Highlands — and Kerumbe Athletics is rooted in this same
+                legendary running country. Our primary base and headquarters is in <strong>Nyamira County</strong>,
+                with active operations and talent pipelines across <strong>Kericho, Kisii, Nyamira, and Bomet Counties</strong>.
               </p>
 
               <div className="space-y-5">
                 {[
                   {
-                    county: "Kericho County",
-                    desc: "Our primary home base. We work with rural primary and secondary schools throughout Kericho, including direct partnerships with local headteachers and sports coordinators.",
+                    county: "Nyamira County",
+                    desc: "Primary Base & Headquarters. We work directly with rural primary and secondary schools across Nyamira, identifying gifted distance runners and providing running gear, nutrition, and academic support.",
                     primary: true,
                   },
                   {
-                    county: "Bomet County",
-                    desc: "Talent identification outreach programs reach schools in Bomet, bringing promising young runners into our training network.",
+                    county: "Kericho County",
+                    desc: "Rift Valley High-Altitude Circuit. High-altitude conditioning and competition participation in major championships including the Belgut Marathon - 2026 and Kericho Marathon - 2026.",
                     primary: false,
                   },
                   {
-                    county: "Rift Valley Region (Broader)",
-                    desc: "We actively scout talent from across the broader Rift Valley corridor, participating in inter-county athletics competitions.",
+                    county: "Kisii County",
+                    desc: "Highland Endurance Pipeline. School outreach programs providing underprivileged student-athletes with footwear, uniforms, and mentorship.",
+                    primary: false,
+                  },
+                  {
+                    county: "Bomet County",
+                    desc: "Rift Valley Talent Development. Scouting and supporting gifted young middle-distance and cross-country runners from rural communities.",
                     primary: false,
                   },
                 ].map((area) => (
@@ -82,19 +87,19 @@ export default function WhereWeOperatePage() {
                   Kericho Teachers Training College
                 </div>
               </div>
-              <div className="relative h-48 rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/images/kericho-finish.jpg" alt="Kericho Cross Country" fill className="object-cover" />
+              <div className="relative h-56 rounded-2xl overflow-hidden shadow-xl">
+                <Image src="/images/belgut-finish-gantry.jpg" alt="Belgut Marathon 2026 Finish" fill className="object-cover" />
                 <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs font-heading font-bold px-3 py-1.5 rounded-lg">
-                  Kericho Cross Country Championships
+                  Belgut Marathon - 2026 &amp; Kericho Marathon - 2026
                 </div>
               </div>
 
               <div className="bg-charcoal-dark rounded-2xl p-6 text-white">
-                <h3 className="font-heading font-black text-lg mb-4">Training Altitude Advantage</h3>
+                <h3 className="font-heading font-black text-lg mb-4">Highland Altitude Advantage</h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                  Kericho sits at approximately 2,100m above sea level in the Rift Valley
-                  Highlands — the same altitude that has produced generations of world-class
-                  Kenyan distance runners. Our athletes train in this natural high-performance
+                  Nyamira County sits at approximately 1,900m to 2,100m above sea level in the
+                  Kenyan Highlands — ideal natural altitude that builds exceptional cardiovascular endurance
+                  and red blood cell efficiency. Our athletes train in this natural high-performance
                   environment every day.
                 </p>
                 <div className="grid grid-cols-2 gap-4">

@@ -57,7 +57,7 @@ export default function AboutPage() {
                   pathway to competition.
                 </p>
                 <p>
-                  He started with a handful of young runners from Kericho County,
+                  He started with a handful of young runners from Nyamira County,
                   providing them with running shoes from his own pocket. What began as
                   a personal mission quickly grew into a structured sports club that now
                   supports over 50 young athletes.

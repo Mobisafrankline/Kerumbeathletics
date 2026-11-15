@@ -25,9 +25,11 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const HERO_SLIDES: string[] = [
+  "/images/belgut-finish-gantry.jpg",
+  "/images/belgut-kemboi-2026.jpg",
   "/images/kericho-finish.jpg",
   "/images/athletes-track.jpg",
-  "/images/athletes-back.jpg",
+  "/images/belgut-crowd-2026.jpg",
 ];
 
 export const HERO_STATS: Stat[] = [
@@ -42,9 +44,9 @@ export const HERO_STATS: Stat[] = [
     description: "Every athlete remains enrolled in primary or secondary school.",
   },
   {
-    value: "3+",
+    value: "4",
     label: "Counties Reached",
-    description: "Bridging countryside talent from Kericho and neighboring counties.",
+    description: "Nyamira, Kisii, Kericho, and Bomet Counties in high-altitude Kenya.",
   },
   {
     value: "2020",
@@ -54,9 +56,11 @@ export const HERO_STATS: Stat[] = [
 ];
 
 export const TRUST_ITEMS: string[] = [
-  "Belgut Marathon Finishers",
-  "Kericho Cross Country Competitors",
-  "Rural-to-National Athletics Pipeline",
+  "Belgut Marathon - 2026 Finishers",
+  "Kericho Marathon - 2026 Competitors",
+  "Primary Base: Nyamira County",
+  "Active in Nyamira, Kisii, Kericho & Bomet Counties",
+  "Rift Valley & Highland Athletics Pipeline",
   "Academic Education & Sports Mentorship",
 ];
 
@@ -85,7 +89,7 @@ export const PROGRAMS: Program[] = [
     description:
       "Talent without coaching leads to burnout. Our coaches establish age-appropriate training programs focusing on aerobic endurance, pacing strategies, running mechanics, and mental fortitude. We hold weekly structured sessions that accommodate school timetables so athletics never interferes with classes.",
     highlights: [
-      "High-altitude endurance conditioning in Rift Valley hills",
+      "High-altitude conditioning across Nyamira, Kisii, Kericho & Bomet",
       "Technique, cadence, and running posture coaching",
       "Specialized middle-distance (800m - 10,000m) programs",
       "Recovery sessions, stretching, and injury management",
@@ -144,7 +148,7 @@ export const PROGRAMS: Program[] = [
     summary:
       "Covering entry fees, transport, and lodging for local, county, and national athletic championships.",
     description:
-      "Rural athletes often miss life-changing championships simply because they cannot afford the entry fee or the bus fare to the host stadium. Kerumbe pays for race registration, team transport, lodging, and meals during competitive meets across the Rift Valley and national circuits.",
+      "Rural athletes often miss life-changing championships simply because they cannot afford the entry fee or the bus fare to the host stadium. Kerumbe pays for race registration, team transport, lodging, and meals during competitive meets such as the Belgut Marathon - 2026 and Kericho Marathon - 2026.",
     highlights: [
       "Official race registration & Athletics Kenya bib numbers",
       "Chartered team travel to county and national circuits",
@@ -158,30 +162,30 @@ export const MILESTONES: Milestone[] = [
   {
     year: "2020",
     title: "The Vision Takes Root",
-    subtitle: "Club Founding in Kericho",
+    subtitle: "Club Founding in Nyamira County",
     description:
-      "Chairman Steve Makwae Gekara recognized the immense untapped potential in rural primary and secondary schools. Kerumbe Athletics Sports Club was officially founded to give village runners a fighting chance.",
+      "Chairman Steve Makwae Gekara recognized the immense untapped athletic potential in rural primary and secondary schools. Kerumbe Athletics Sports Club was officially founded in Nyamira County to give village runners a fighting chance.",
   },
   {
     year: "2023",
-    title: "First Cohort & Community Partnership",
-    subtitle: "Establishing Rural School Linkages",
+    title: "First Cohort & Community Partnerships",
+    subtitle: "Reaching Schools Across Nyamira, Kisii & Rift Valley",
     description:
-      "Kerumbe partnered with rural primary schools across Kericho to scout children with natural endurance talent, establishing training routines and school-shoe support programs.",
-  },
-  {
-    year: "2024",
-    title: "Belgut Marathon Breakthrough",
-    subtitle: "Sharing the Stage with Olympic Icons",
-    description:
-      "Kerumbe athletes competed in the prestigious Belgut Marathon in Kabianga, sharing the course with global icons Ferdinand Omanyala, Eliud Kipchoge, and Ezekiel Kemboi. The performance placed Kerumbe on the regional athletic map.",
+      "Kerumbe partnered with rural schools across Nyamira, Kisii, Kericho, and Bomet Counties to scout student-athletes with natural endurance, establishing training routines and school-shoe support programs.",
   },
   {
     year: "2025",
-    title: "Kericho Cross Country Triumphs",
+    title: "Regional Cross Country Success",
     subtitle: "Podium Strides & Team Growth",
     description:
-      "Kerumbe fielded athletes at the Kericho Cross Country championships, crossing the finish line with distinction and demonstrating that structured grassroots investment produces remarkable results.",
+      "Kerumbe fielded athletes at competitive regional championships, crossing finish lines with distinction and demonstrating that structured grassroots investment produces remarkable results.",
+  },
+  {
+    year: "2026",
+    title: "Belgut Marathon - 2026 & Kericho Marathon - 2026",
+    subtitle: "Sharing the Stage with Olympic Icons",
+    description:
+      "Kerumbe athletes made a landmark impression at the Belgut Marathon - 2026 and Kericho Marathon - 2026 in high-altitude Rift Valley. Competing alongside Olympic champion Ezekiel Kemboi and national legends, our young runners finished strongly with medals and official honors.",
   },
   {
     year: "Future",
@@ -194,30 +198,30 @@ export const MILESTONES: Milestone[] = [
 
 export const STORIES: Story[] = [
   {
-    id: "belgut-marathon-2024",
-    title: "From Dirt Paths to the Belgut Marathon Course",
+    id: "belgut-marathon-2026",
+    title: "Belgut Marathon - 2026: From Village Dirt Roads to Championship Medals",
     category: "Competition Milestone",
-    date: "2024",
-    image: "/images/kericho-finish.jpg",
+    date: "2026",
+    image: "/images/belgut-finish-gantry.jpg",
     summary:
-      "How Kerumbe's rural runners ran shoulder-to-shoulder with Olympic champions in Kabianga.",
+      "How Kerumbe's runners competed shoulder-to-shoulder with Olympic champions at the Belgut Marathon - 2026.",
     content: [
-      "The 2024 Belgut Marathon at Kabianga will forever be etched in the memory of Kerumbe Athletics Sports Club. For our young student-athletes who had only ever run on red-dirt school tracks, stepping onto the starting line alongside international athletic icons like Eliud Kipchoge, Ferdinand Omanyala, and Ezekiel Kemboi was nothing short of historic.",
-      "Chairman Steve Makwae Gekara personally organized travel, team kits, and race bibs. When the starting gun fired, our runners proved that courage and natural talent know no socioeconomic boundaries. They finished strongly, earning praise from county officials and national coaches alike.",
-      "This landmark event proved to every young girl and boy in our rural community that their running dreams are valid and achievable.",
+      "The Belgut Marathon - 2026 in Kabianga stands as a defining chapter in the history of Kerumbe Athletics Sports Club. Running through high-altitude Rift Valley courses before massive enthusiastic crowds, our young student-athletes from Nyamira, Kisii, Kericho, and Bomet Counties stepped onto the starting line alongside Olympic icons, including steeplechase legend Ezekiel Kemboi.",
+      "Chairman Steve Makwae Gekara personally coordinated race registration, transport, nutrition, and official team kits. When the starting gun fired, our runners proved that dedication, high-altitude training, and disciplined mentorship yield championship results, crossing the finish gantry with official medals and widespread acclaim.",
+      "This triumph confirmed to every young boy and girl across rural Kenya that with proper shoes, coaching, and education, their running dreams can conquer any stage.",
     ],
   },
   {
-    id: "kericho-cross-country-2025",
-    title: "Crossing the Finish Line at Kericho Cross Country",
+    id: "kericho-marathon-2026",
+    title: "Kericho Marathon - 2026 & Cross Country Excellence",
     category: "Championship Success",
-    date: "2025",
-    image: "/images/athletes-track.jpg",
+    date: "2026",
+    image: "/images/kericho-finish.jpg",
     summary:
-      "Braving muddy hills and fierce competition to establish Kerumbe as a rising force.",
+      "Tackling grueling Rift Valley elevation and muddy terrain to establish Kerumbe as a premier grassroots sports club.",
     content: [
-      "Cross-country running is the undisputed proving ground of Kenyan distance runners. At the Kericho Cross Country Championships, Kerumbe fielded athletes across junior categories.",
-      "Equipped with proper track footwear and uniforms, our runners tackled the grueling terrain with unwavering grit. Crossing that finish line was not just an athletic milestone — it was proof that when rural athletes receive shoes, nutrition, and mentorship, they can match the best in Kenya.",
+      "High-altitude cross-country and marathon racing is the true proving ground of Kenyan distance legends. At the Kericho Marathon - 2026 and regional championships, Kerumbe fielded junior and senior competitors.",
+      "Equipped with proper track footwear and uniforms, our runners tackled the grueling terrain with unwavering grit. Crossing that finish line was not just an athletic milestone — it was living proof that grassroots investment from Nyamira County into our regional athletes creates national-calibre competitors.",
     ],
   },
   {
@@ -227,21 +231,45 @@ export const STORIES: Story[] = [
     date: "Continuous",
     image: "/images/kericho-college.jpg",
     summary:
-      "How our student-athletes balance rigorous 5:30 AM workouts with classroom excellence.",
+      "How our student-athletes balance dawn workouts with classroom excellence in rural schools.",
     content: [
       "At Kerumbe Athletics, training starts early at dawn, but 8:00 AM finds every athlete at their desk in class. We believe that an athlete equipped with knowledge is unstoppable.",
-      "By coordinating directly with local teachers and headteachers, we monitor grades and attendance. Athletes who show academic dedication receive priority equipment sponsorships and race travel opportunities.",
+      "By coordinating directly with local teachers and headteachers across Nyamira, Kisii, Kericho, and Bomet Counties, we monitor grades and school attendance. Athletes who show academic dedication receive priority equipment sponsorships and race travel opportunities.",
     ],
   },
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    src: "/images/kericho-finish.jpg",
-    alt: "Kerumbe athletes at the finish line",
-    caption: "Kericho Cross Country Finish Line",
+    src: "/images/belgut-finish-gantry.jpg",
+    alt: "Kerumbe athlete under the Belgut Marathon 2026 Finish arch",
+    caption: "Belgut Marathon - 2026 Finish Line",
     category: "competition",
     large: true,
+  },
+  {
+    src: "/images/belgut-kemboi-2026.jpg",
+    alt: "Kerumbe athlete with Olympic champion Ezekiel Kemboi at Belgut Marathon 2026",
+    caption: "With Olympic Champion Ezekiel Kemboi (Belgut 2026)",
+    category: "competition",
+  },
+  {
+    src: "/images/belgut-runner-medal.jpg",
+    alt: "Runner with medal and bib 5540 at Belgut Marathon 2026",
+    caption: "Proud Belgut Marathon 2026 Medalist",
+    category: "competition",
+  },
+  {
+    src: "/images/belgut-crowd-2026.jpg",
+    alt: "Massive spectator crowds gathered at Belgut Marathon 2026 in Kabianga",
+    caption: "Belgut Marathon - 2026 Championship Crowds",
+    category: "competition",
+  },
+  {
+    src: "/images/kericho-finish.jpg",
+    alt: "Kerumbe athletes at the competition finish line",
+    caption: "Kericho Marathon & Cross Country Finish",
+    category: "competition",
   },
   {
     src: "/images/athletes-track.jpg",
@@ -276,7 +304,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     src: "/images/kericho-college.jpg",
     alt: "Chairman and young athletes outside Kericho Teachers College",
-    caption: "Education First — Kericho Teachers College",
+    caption: "Education First — School & College Linkages",
     category: "training",
   },
   {
@@ -340,8 +368,8 @@ export const DONATION_TIERS: DonationTier[] = [
 export const CONTACT_INFO: ContactInfo[] = [
   {
     icon: "Location",
-    label: "Headquarters & Operations",
-    value: "Kericho County, Rift Valley, Kenya",
+    label: "Primary Base & Headquarters",
+    value: "Nyamira County, Kenya (Reaching Kisii, Kericho & Bomet Counties)",
   },
   {
     icon: "Phone",

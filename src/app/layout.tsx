@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     "Kenya athletics",
     "Kenyan runners",
     "rural athletics Kenya",
-    "Kericho athletics",
+    "Nyamira athletics",
+    "Nyamira County runners",
     "Belgut Marathon",
     "Kericho Cross Country",
     "grassroots sports Kenya",
@@ -90,8 +91,8 @@ const jsonLd = {
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Kericho",
-        addressRegion: "Kericho County",
+        addressLocality: "Nyamira",
+        addressRegion: "Nyamira County",
         addressCountry: "KE",
       },
       contactPoint: {

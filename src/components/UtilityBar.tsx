@@ -20,7 +20,7 @@ export default function UtilityBar() {
         </div>
         <div className="flex items-center gap-4 text-gray-300">
           <span className="font-heading font-medium tracking-wide">
-            Kericho County &bull; Rift Valley, Kenya
+            Primary Base: Nyamira County &bull; Active in Kisii, Kericho &amp; Bomet, Kenya
           </span>
         </div>
       </div>

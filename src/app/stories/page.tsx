@@ -22,7 +22,7 @@ export default function StoriesPage() {
         title="Stories & Impact"
         subtitle="Real stories of transformation — from barefoot training on red dirt roads to competing on Kenya's national stage."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Stories & Impact" }]}
-        image="/images/kericho-finish.jpg"
+        image="/images/belgut-finish-gantry.jpg"
       />
 
       {/* Stories Grid */}

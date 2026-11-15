@@ -17,8 +17,8 @@ const impacts = [
   {
     tag: "Reach",
     label: "Counties Reached",
-    value: "3+",
-    desc: "Kericho, Bomet, and Rift Valley high-altitude zones",
+    value: "4",
+    desc: "Nyamira, Kisii, Kericho & Bomet high-altitude zones",
   },
   {
     tag: "Education",
@@ -78,8 +78,8 @@ export default function Impact() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/athletes-back.jpg"
-                  alt="Athletes in Kerumbe jerseys"
+                  src="/images/belgut-finish-gantry.jpg"
+                  alt="Kerumbe athlete at Belgut Marathon 2026 finish"
                   fill
                   className="object-cover"
                 />
