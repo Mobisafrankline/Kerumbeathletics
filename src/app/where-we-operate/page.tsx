@@ -26,22 +26,22 @@ export default function WhereWeOperatePage() {
       />
 
       {/* Map info */}
-      <section className="py-20 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div>
               <p className="section-label">Our Geographic Reach</p>
-              <h2 className="section-title mb-6">
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-charcoal-dark leading-tight mb-4 sm:mb-6">
                 High-Altitude <span className="text-red">Nyamira Highland</span> Athletics
               </h2>
-              <p className="text-muted text-base leading-relaxed mb-8">
+              <p className="text-muted text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
                 Kenya&apos;s greatest endurance runners have historically emerged from the high-altitude
                 regions of the Rift Valley and Kenyan Highlands — and Kerumbe Athletics is rooted in this same
                 legendary running country. Our primary base and headquarters is in <strong>Nyamira County</strong>,
-                with active operations and talent pipelines across <strong>Kericho, Kisii, Nyamira, and Bomet Counties</strong>.
+                with active operations and talent pipelines across <strong>Nyamira, Kisii, Kericho, and Bomet Counties</strong>.
               </p>
 
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 {[
                   {
                     county: "Nyamira County",
@@ -64,51 +64,51 @@ export default function WhereWeOperatePage() {
                     primary: false,
                   },
                 ].map((area) => (
-                  <div key={area.county} className={`p-6 rounded-xl border-l-4 ${area.primary ? "border-red bg-red/5" : "border-gray-200 bg-offwhite"}`}>
+                  <div key={area.county} className={`p-5 sm:p-6 rounded-xl border-l-4 ${area.primary ? "border-red bg-red/5" : "border-gray-200 bg-offwhite"}`}>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="w-2 h-2 rounded-full bg-red flex-shrink-0" />
-                      <h3 className="font-heading font-black text-lg text-charcoal-dark">{area.county}</h3>
+                      <h3 className="font-heading font-black text-base sm:text-lg text-charcoal-dark">{area.county}</h3>
                       {area.primary && (
                         <span className="bg-red text-white text-[10px] font-heading font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ml-auto">
                           Primary Base
                         </span>
                       )}
                     </div>
-                    <p className="text-muted text-sm leading-relaxed">{area.desc}</p>
+                    <p className="text-muted text-xs sm:text-sm leading-relaxed">{area.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="space-y-5">
-              <div className="relative h-72 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-60 sm:h-72 rounded-2xl overflow-hidden shadow-xl">
                 <Image src="/images/kericho-college.jpg" alt="Kericho Teachers Training College" fill className="object-cover" />
-                <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs font-heading font-bold px-3 py-1.5 rounded-lg">
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-black/75 backdrop-blur-xs text-white text-xs font-heading font-bold px-3 py-1.5 rounded-lg">
                   Kericho Teachers Training College
                 </div>
               </div>
-              <div className="relative h-56 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-52 sm:h-56 rounded-2xl overflow-hidden shadow-xl">
                 <Image src="/images/belgut-finish-gantry.jpg" alt="Belgut Marathon 2026 Finish" fill className="object-cover" />
-                <div className="absolute bottom-4 left-4 bg-black/70 text-white text-xs font-heading font-bold px-3 py-1.5 rounded-lg">
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-black/75 backdrop-blur-xs text-white text-xs font-heading font-bold px-3 py-1.5 rounded-lg">
                   Belgut Marathon - 2026 &amp; Kericho Marathon - 2026
                 </div>
               </div>
 
-              <div className="bg-charcoal-dark rounded-2xl p-6 text-white">
-                <h3 className="font-heading font-black text-lg mb-4">Highland Altitude Advantage</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              <div className="bg-charcoal-dark rounded-2xl p-6 sm:p-7 text-white">
+                <h3 className="font-heading font-black text-lg mb-3">Highland Altitude Advantage</h3>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
                   Nyamira County sits at approximately 1,900m to 2,100m above sea level in the
                   Kenyan Highlands — ideal natural altitude that builds exceptional cardiovascular endurance
                   and red blood cell efficiency. Our athletes train in this natural high-performance
                   environment every day.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/10 rounded-xl p-4 text-center">
-                    <div className="font-heading font-black text-2xl text-red">2,100m</div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="bg-white/10 rounded-xl p-3 sm:p-4 text-center">
+                    <div className="font-heading font-black text-2xl sm:text-3xl text-red">2,100m</div>
                     <div className="text-gray-400 text-xs mt-1">Training Altitude</div>
                   </div>
-                  <div className="bg-white/10 rounded-xl p-4 text-center">
-                    <div className="font-heading font-black text-2xl text-red">3+</div>
+                  <div className="bg-white/10 rounded-xl p-3 sm:p-4 text-center">
+                    <div className="font-heading font-black text-2xl sm:text-3xl text-red">4</div>
                     <div className="text-gray-400 text-xs mt-1">Counties Reached</div>
                   </div>
                 </div>
@@ -119,18 +119,18 @@ export default function WhereWeOperatePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-red text-white text-center">
+      <section className="py-14 sm:py-16 bg-red text-white text-center">
         <div className="container-custom">
-          <h2 className="font-heading font-black text-3xl mb-4">Help Us Expand Our Reach</h2>
-          <p className="text-white/80 text-base mb-8 max-w-xl mx-auto">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">Help Us Expand Our Reach</h2>
+          <p className="text-white/85 text-sm sm:text-base mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed">
             There are hundreds more talented young runners in rural Kenya waiting to be discovered.
             Your support helps us reach more schools, more counties, more champions.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/donate" className="bg-white text-red px-7 py-3 rounded font-heading font-bold text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/donate" className="bg-white text-red px-7 py-3.5 rounded font-heading font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors shadow-md">
               Support Our Expansion
             </Link>
-            <Link href="/contact" className="border-2 border-white text-white px-7 py-3 rounded font-heading font-bold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors">
+            <Link href="/contact" className="border-2 border-white text-white px-7 py-3.5 rounded font-heading font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-white/10 transition-colors">
               Partner With Us
             </Link>
           </div>

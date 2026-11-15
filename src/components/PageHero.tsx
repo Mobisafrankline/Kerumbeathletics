@@ -11,17 +11,17 @@ export default function PageHero({ title, subtitle, breadcrumbs, image }: PageHe
   const bg = image || "/images/kericho-finish.jpg";
   return (
     <section
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 overflow-hidden bg-charcoal-dark"
       style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover", backgroundPosition: "center" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/55" />
       <div className="absolute top-0 left-0 right-0 h-1 bg-red" />
 
       <div className="relative z-10 container-custom">
         {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs mb-6" aria-label="Breadcrumb">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs mb-4 sm:mb-6" aria-label="Breadcrumb">
           {breadcrumbs.map((crumb, i) => (
-            <span key={i} className="flex items-center gap-2">
+            <span key={i} className="flex items-center gap-1.5 sm:gap-2">
               {crumb.href ? (
                 <Link href={crumb.href} className="text-gray-300 hover:text-red transition-colors font-heading font-semibold uppercase tracking-wider">
                   {crumb.label}
@@ -36,9 +36,11 @@ export default function PageHero({ title, subtitle, breadcrumbs, image }: PageHe
           ))}
         </nav>
 
-        <h1 className="section-title-white text-shadow mb-4 max-w-2xl">{title}</h1>
+        <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight tracking-tight text-shadow mb-3 sm:mb-4 max-w-2xl">
+          {title}
+        </h1>
         {subtitle && (
-          <p className="text-gray-200 text-base md:text-lg leading-relaxed max-w-xl">
+          <p className="text-gray-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl">
             {subtitle}
           </p>
         )}

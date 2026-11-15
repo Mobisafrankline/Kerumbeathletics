@@ -9,26 +9,26 @@ export default function Footer() {
     <footer className="bg-charcoal-dark text-white">
 
       {/* CTA Strip */}
-      <div className="bg-red py-10">
+      <div className="bg-red py-8 sm:py-10">
         <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
-            <h3 className="font-heading font-black text-2xl md:text-3xl text-white mb-1">
+            <h3 className="font-heading font-black text-xl sm:text-2xl md:text-3xl text-white mb-1.5">
               Ready to Empower a Champion?
             </h3>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/85 text-xs sm:text-sm max-w-xl">
               Your support gives a young Kenyan runner proper running shoes, meals, and education.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center">
             <Link
               href="/donate"
-              className="bg-white text-red px-7 py-3 rounded font-heading font-bold text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors"
+              className="bg-white text-red px-6 sm:px-7 py-3 rounded font-heading font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors text-center shadow-md"
             >
               Donate Now
             </Link>
             <a
               href="tel:+254790700228"
-              className="border-2 border-white text-white px-7 py-3 rounded font-heading font-bold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors"
+              className="border-2 border-white text-white px-6 sm:px-7 py-3 rounded font-heading font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-white/15 transition-colors text-center"
             >
               Call Us
             </a>

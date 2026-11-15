@@ -47,39 +47,39 @@ export default function DonatePage() {
       />
 
       {/* Interactive Custom Donation Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <p className="section-label">Open-Ended Giving</p>
-            <h2 className="section-title mb-4">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-charcoal-dark leading-tight mb-3 sm:mb-4">
               Choose or Enter <span className="text-red">Any Amount</span>
             </h2>
-            <p className="text-muted text-base leading-relaxed">
+            <p className="text-muted text-sm sm:text-base leading-relaxed">
               Whether you give KES 200 or KES 20,000, your contribution makes a direct difference.
               There are no minimums and no hidden fees.
             </p>
           </div>
 
           {/* Calculator Card */}
-          <div className="max-w-3xl mx-auto bg-offwhite border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-lg mb-16">
+          <div className="max-w-3xl mx-auto bg-offwhite border border-gray-200 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-lg mb-12 sm:mb-16">
 
             {/* Currency Switcher */}
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b border-gray-200">
               <div>
                 <span className="font-heading font-bold text-sm text-charcoal-dark block">
                   Select Currency
                 </span>
                 <span className="text-xs text-muted">Kenyan Shillings (KES) or US Dollars (USD)</span>
               </div>
-              <div className="inline-flex rounded-lg bg-white p-1 border border-gray-200">
+              <div className="inline-flex rounded-xl bg-white p-1 border border-gray-200 self-start sm:self-auto">
                 <button
                   type="button"
                   onClick={() => {
                     setCurrency("KES");
                     setCustomAmount(2000);
                   }}
-                  className={`px-4 py-1.5 rounded-md font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
-                    currency === "KES" ? "bg-red text-white" : "text-charcoal hover:text-red"
+                  className={`px-4 py-1.5 rounded-lg font-heading font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer ${
+                    currency === "KES" ? "bg-red text-white shadow-sm" : "text-charcoal hover:text-red"
                   }`}
                 >
                   KES (KSh)
@@ -90,8 +90,8 @@ export default function DonatePage() {
                     setCurrency("USD");
                     setCustomAmount(20);
                   }}
-                  className={`px-4 py-1.5 rounded-md font-heading font-bold text-xs uppercase tracking-wider transition-colors ${
-                    currency === "USD" ? "bg-red text-white" : "text-charcoal hover:text-red"
+                  className={`px-4 py-1.5 rounded-lg font-heading font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer ${
+                    currency === "USD" ? "bg-red text-white shadow-sm" : "text-charcoal hover:text-red"
                   }`}
                 >
                   USD ($)
@@ -110,13 +110,13 @@ export default function DonatePage() {
                     key={val}
                     type="button"
                     onClick={() => setCustomAmount(val)}
-                    className={`py-3 px-2 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all border ${
+                    className={`py-2.5 sm:py-3 px-2 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all border cursor-pointer ${
                       numeric === val
-                        ? "bg-red text-white border-red shadow-md"
+                        ? "bg-red text-white border-red shadow-md scale-102"
                         : "bg-white text-charcoal-dark border-gray-200 hover:border-red hover:text-red"
                     }`}
                   >
-                    {currency === "KES" ? `KES ${val.toLocaleString()}` : `$${val}`}
+                    {currency === "KES" ? `${val.toLocaleString()}` : `$${val}`}
                   </button>
                 ))}
               </div>
@@ -128,7 +128,7 @@ export default function DonatePage() {
                 Or Enter Your Own Custom Amount ({currency})
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 font-heading font-bold text-base text-gray-500">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 font-heading font-bold text-sm sm:text-base text-gray-500">
                   {currency === "KES" ? "KES" : "$"}
                 </span>
                 <input
@@ -137,31 +137,31 @@ export default function DonatePage() {
                   placeholder="Enter any amount you wish to donate..."
                   value={customAmount}
                   onChange={(e) => setCustomAmount(e.target.value)}
-                  className="w-full pl-16 pr-4 py-3.5 rounded-xl border border-gray-300 bg-white font-heading font-bold text-xl text-charcoal-dark focus:outline-none focus:ring-2 focus:ring-red focus:border-red"
+                  className="w-full pl-16 pr-4 py-3.5 rounded-xl border border-gray-300 bg-white font-heading font-bold text-lg sm:text-xl text-charcoal-dark focus:outline-none focus:ring-2 focus:ring-red focus:border-red"
                 />
               </div>
             </div>
 
             {/* Impact feedback */}
-            <div className="p-4 bg-white rounded-xl border border-red/20 mb-8">
+            <div className="p-4 sm:p-5 bg-white rounded-xl border border-red/25 mb-6 sm:mb-8 shadow-xs">
               <div className="text-[10px] font-heading font-bold uppercase tracking-wider text-red mb-1">
                 Your Donation Impact
               </div>
-              <p className="text-charcoal-dark text-sm font-medium leading-relaxed">
+              <p className="text-charcoal-dark text-xs sm:text-sm font-medium leading-relaxed">
                 {getImpactMessage()}
               </p>
             </div>
 
             {/* Direct M-Pesa Instruction */}
-            <div className="bg-charcoal-dark text-white rounded-2xl p-6 sm:p-8">
+            <div className="bg-charcoal-dark text-white rounded-2xl p-5 sm:p-8">
               <div className="text-xs font-heading font-bold uppercase tracking-wider text-red mb-2">
                 Payment Option 1: Mobile Money
               </div>
-              <h3 className="font-heading font-black text-2xl mb-4">
+              <h3 className="font-heading font-black text-xl sm:text-2xl mb-4 leading-tight">
                 Send via M-Pesa to Chairman Steve Makwae
               </h3>
 
-              <div className="bg-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+              <div className="bg-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-5">
                 <div>
                   <span className="text-xs text-gray-400 block">M-Pesa Number</span>
                   <span className="font-heading font-black text-2xl text-white tracking-wide">
@@ -171,25 +171,25 @@ export default function DonatePage() {
                 <button
                   type="button"
                   onClick={copyNumber}
-                  className="px-4 py-2 bg-red hover:bg-red-dark text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors"
+                  className="px-5 py-2.5 bg-red hover:bg-red-dark text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer text-center"
                 >
                   {copied ? "Copied" : "Copy Number"}
                 </button>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-3 text-xs mb-6">
-                <div className="bg-white/5 p-3 rounded-lg border border-white/10">
-                  <span className="text-gray-400 block">Name on Account</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-6">
+                <div className="bg-white/5 p-3.5 rounded-xl border border-white/10">
+                  <span className="text-gray-400 block mb-0.5">Name on Account</span>
                   <span className="font-heading font-bold text-white text-sm">Steve Makwae Gekara</span>
                 </div>
-                <div className="bg-white/5 p-3 rounded-lg border border-white/10">
-                  <span className="text-gray-400 block">Reference / Account</span>
+                <div className="bg-white/5 p-3.5 rounded-xl border border-white/10">
+                  <span className="text-gray-400 block mb-0.5">Reference / Account</span>
                   <span className="font-heading font-bold text-white text-sm">Kerumbe Donation</span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <a href="tel:+254790700228" className="btn-red text-xs py-3 px-6">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="tel:+254790700228" className="btn-red text-xs py-3.5 px-6 justify-center text-center">
                   Call Chairman Steve
                 </a>
               </div>

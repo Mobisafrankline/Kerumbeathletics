@@ -9,7 +9,12 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { GALLERY_IMAGES } from "@/data/siteData";
 
-const CATEGORIES = ["all", "competition", "training", "community"];
+const CATEGORIES = [
+  { id: "all", label: "All Photos" },
+  { id: "competition", label: "Competitions" },
+  { id: "training", label: "Training" },
+  { id: "community", label: "Community & Education" },
+];
 
 export default function GalleryPage() {
   const [cat, setCat] = useState("all");
@@ -28,36 +33,36 @@ export default function GalleryPage() {
         title="Photo Gallery"
         subtitle="Every image tells the story of a young Kenyan runner chasing their dream."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
-        image="/images/athletes-back.jpg"
+        image="/images/belgut-finish-gantry.jpg"
       />
 
-      <section className="py-20 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="container-custom">
 
-          {/* Filter */}
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
+          {/* Filter Pills */}
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-10 sm:mb-12">
             {CATEGORIES.map((c) => (
               <button
-                key={c}
-                onClick={() => setCat(c)}
-                className={`px-5 py-2.5 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all duration-200 ${
-                  cat === c
-                    ? "bg-red text-white shadow-lg"
-                    : "bg-offwhite text-charcoal hover:bg-red hover:text-white"
+                key={c.id}
+                onClick={() => setCat(c.id)}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  cat === c.id
+                    ? "bg-red text-white shadow-md scale-105"
+                    : "bg-offwhite text-charcoal border border-gray-200 hover:border-red hover:text-red"
                 }`}
               >
-                {c}
+                {c.label}
               </button>
             ))}
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Grid - responsive 1 col mobile, 2 col tablet, 3 col desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {filtered.map((img, i) => (
               <div
                 key={img.src}
-                className={`gallery-item relative cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ${
-                  i === 0 ? "col-span-2 h-80" : "h-56"
+                className={`gallery-item relative cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ${
+                  i === 0 ? "sm:col-span-2 lg:col-span-1 h-64 sm:h-80 lg:h-72" : "h-60 sm:h-64 lg:h-72"
                 }`}
                 onClick={() => setLightbox(img.src)}
               >
@@ -83,15 +88,16 @@ export default function GalleryPage() {
       {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 bg-black/92 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-3 sm:p-6"
           onClick={() => setLightbox(null)}
         >
-          <div className="relative max-w-5xl w-full max-h-[90vh] rounded-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+          <div className="relative max-w-5xl w-full max-h-[85vh] rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <Image src={lightbox} alt="Gallery" width={1400} height={900} className="object-contain w-full max-h-[85vh]" />
           </div>
           <button
             onClick={() => setLightbox(null)}
-            className="absolute top-6 right-6 w-11 h-11 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center text-2xl transition-colors"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center text-2xl transition-colors cursor-pointer"
+            aria-label="Close lightbox"
           >
             &times;
           </button>
