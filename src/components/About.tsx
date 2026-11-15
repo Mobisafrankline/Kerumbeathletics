@@ -81,22 +81,6 @@ export default function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {[
-                { n: "50+", label: "Athletes Supported" },
-                { n: "3+", label: "Counties Reached" },
-                { n: "100%", label: "School Enrolment" },
-                { n: "5+", label: "Events Participated" },
-              ].map((s) => (
-                <div key={s.label} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-                  <div className="font-heading font-black text-2xl text-red">{s.n}</div>
-                  <div className="font-heading font-semibold text-xs text-charcoal uppercase tracking-wider mt-1">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
             <div className="flex flex-wrap gap-3">
               <Link href="/about" className="btn-red">
                 Read Our Full Story
