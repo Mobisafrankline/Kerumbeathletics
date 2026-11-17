@@ -75,10 +75,12 @@ export default function Hero() {
           </h1>
 
           {/* Subheading (No dashes) */}
-          <p className="text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl">
+          <p className="text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-7 max-w-2xl">
             Kerumbe Athletics Sports Club discovers, trains, and equips gifted
             young runners from Kenya&apos;s rural schools, providing them with gear,
-            nutrition, coaching, and a bright academic future.
+            nutrition, coaching, and a bright academic future. We urgently need financial
+            assistance, corporate sponsorships, and individual donations to fund running shoes,
+            meals, school fees, and marathon competition access for our student-athletes.
           </p>
 
           {/* Action Buttons */}
@@ -87,7 +89,7 @@ export default function Hero() {
               href="/donate"
               className="bg-red hover:bg-red-dark text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 px-7 rounded-lg transition-all duration-200 shadow-xl text-center flex items-center justify-center gap-2 group"
             >
-              <span>Support Our Athletes</span>
+              <span>Donate &amp; Support Athletes</span>
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
             <Link
@@ -106,8 +108,8 @@ export default function Hero() {
             </span>
             <span className="hidden sm:inline text-white/30">&bull;</span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-red" />
-              Active in Nyamira, Kisii, Kericho &amp; Bomet
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              M-Pesa: 0790 700228 &bull; PayPal: stevegekara04@gmail.com
             </span>
           </div>
         </div>

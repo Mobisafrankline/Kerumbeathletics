@@ -418,7 +418,7 @@ export const CONTACT_INFO: ContactInfo[] = [
   {
     icon: "Web",
     label: "Official Website",
-    value: "kerumbeathletics.co.ke",
-    href: "https://kerumbeathletics.co.ke",
+    value: "www.kerumbeathletic.com",
+    href: "https://www.kerumbeathletic.com",
   },
 ];

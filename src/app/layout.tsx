@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = "https://kerumbeathletics.co.ke";
+const siteUrl = "https://www.kerumbeathletic.com";
 
 export const viewport: Viewport = {
   themeColor: "#E8001C",
@@ -17,9 +17,17 @@ export const metadata: Metadata = {
     template: "%s | Kerumbe Athletics Sports Club",
   },
   description:
-    "Kerumbe Athletics Sports Club is a grassroots Kenyan sports initiative founded by Steve Makwae Gekara. We discover, train, and support gifted young runners from rural primary and secondary schools across Kenya, providing running gear, nutrition, academic mentorship, and marathon competition access while keeping education at the core.",
+    "Kerumbe Athletics Sports Club is a grassroots Kenyan athletics movement and sports initiative founded by Chairman Steve Makwae Gekara in Nyamira County, Kenya. We discover, train, mentor, and sponsor gifted young runners from rural primary and secondary schools across Nyamira, Kisii, Kericho, and Bomet Counties. We need urgent financial assistance, donations, and sponsorships to provide our student-athletes with running shoes, official kits, balanced nutrition, school fees, and competition travel. Support us today via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com).",
   applicationName: "Kerumbe Athletics",
   authors: [{ name: "Steve Makwae Gekara", url: siteUrl }],
+  icons: {
+    icon: [
+      { url: "/images/logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/logo.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/images/logo.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/images/logo.png",
+  },
   keywords: [
     "Kerumbe Athletics",
     "Kerumbe Athletics Sports Club",
@@ -33,7 +41,12 @@ export const metadata: Metadata = {
     "Kericho Cross Country",
     "grassroots sports Kenya",
     "youth athletics sponsorship",
+    "financial assistance Kenyan athletes",
     "donate to Kenyan runners",
+    "M-Pesa 0790700228",
+    "PayPal stevegekara04@gmail.com",
+    "athletics donations Kenya",
+    "running shoes donation Kenya",
   ],
   creator: "Kerumbe Athletics Sports Club",
   publisher: "Kerumbe Athletics Sports Club",
@@ -41,25 +54,32 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kerumbe Athletics Sports Club | Empowering Rural Champions in Kenya",
     description:
-      "Nurturing gifted young runners from Kenya's rural schools. Providing coaching, athletic gear, nutrition, academic support, and competition access.",
+      "Kerumbe Athletics Sports Club discovers, trains, and sponsors gifted young runners from rural schools in Nyamira County, Kenya while keeping education first. We urgently need financial assistance and donations to provide running gear, nutrition, school fees, and competition travel. Support our athletes via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com).",
     url: siteUrl,
     siteName: "Kerumbe Athletics Sports Club",
     locale: "en_KE",
     type: "website",
     images: [
       {
-        url: "/images/kericho-finish.jpg",
+        url: "/images/club-uniforms-kit.jpg",
         width: 1200,
         height: 630,
-        alt: "Kerumbe Athletics runners at the Kericho Cross Country finish line",
+        alt: "Official Kerumbe Athletics Sports Club team uniforms and kit collection",
+      },
+      {
+        url: "/images/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Kerumbe Athletics Sports Club Official Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kerumbe Athletics Sports Club",
-    description: "Transforming rural Kenyan running talent into champions.",
-    images: ["/images/kericho-finish.jpg"],
+    title: "Kerumbe Athletics Sports Club | Financial Assistance & Donations Appeal",
+    description:
+      "Empowering rural Kenyan student-athletes from Nyamira County. We urgently need financial assistance and donations for running shoes, nutrition, and school fees.",
+    images: ["/images/club-uniforms-kit.jpg"],
   },
   robots: {
     index: true,
@@ -77,17 +97,26 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["SportsOrganization", "NGO"],
+      "@type": ["SportsOrganization", "NonprofitOrganization", "NGO"],
       "@id": `${siteUrl}/#organization`,
       name: "Kerumbe Athletics Sports Club",
+      alternateName: ["Kerumbe Athletics", "Kerumbe Sports Club"],
       url: siteUrl,
       logo: `${siteUrl}/images/logo.png`,
+      image: [
+        `${siteUrl}/images/club-uniforms-kit.jpg`,
+        `${siteUrl}/images/belgut-finish-gantry.jpg`,
+        `${siteUrl}/images/logo.png`,
+      ],
       description:
-        "Kerumbe Athletics Sports Club is a Kenyan sports initiative founded to uplift and empower gifted young runners from rural schools.",
+        "Kerumbe Athletics Sports Club is a grassroots Kenyan athletics movement and sports organization founded in 2020 by Chairman Steve Makwae Gekara, headquartered in Nyamira County, Kenya. The club discovers, coaches, and sponsors underprivileged student-athletes across Nyamira, Kisii, Kericho, and Bomet Counties, ensuring 100% school retention alongside elite middle-distance and marathon training. Kerumbe Athletics urgently seeks financial assistance, sponsorships, and charitable donations to provide running shoes, official kits, nutritious recovery meals, academic textbooks, and competition travel for talented rural youth. Donations are received directly via M-Pesa (0790 700228) and PayPal (stevegekara04@gmail.com).",
+      slogan: "Turning Rural Running Talent Into Champions",
       founder: {
         "@type": "Person",
         name: "Steve Makwae Gekara",
         jobTitle: "Chairman & Founder",
+        telephone: "+254790700228",
+        email: "stevegekara04@gmail.com",
       },
       address: {
         "@type": "PostalAddress",
@@ -95,12 +124,39 @@ const jsonLd = {
         addressRegion: "Nyamira County",
         addressCountry: "KE",
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+254790700228",
-        contactType: "Customer Support",
-        email: "stevegekara04@gmail.com",
-        areaServed: "KE",
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Nyamira County" },
+        { "@type": "AdministrativeArea", name: "Kisii County" },
+        { "@type": "AdministrativeArea", name: "Kericho County" },
+        { "@type": "AdministrativeArea", name: "Bomet County" },
+        { "@type": "Country", name: "Kenya" },
+      ],
+      knowsAbout: [
+        "Track & Field Athletics",
+        "Marathon Training",
+        "Cross Country",
+        "Youth Sports Mentorship",
+        "Rural Education Sponsorship",
+        "Belgut Marathon - 2026",
+        "Kericho Marathon - 2026",
+      ],
+      seeks:
+        "Financial assistance, individual donations, corporate CSR sponsorships, running shoes, track kits, nutrition funding, and academic school fees to support over 50 gifted rural student-athletes in Kenya.",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+254790700228",
+          contactType: "Donations & Chairman",
+          email: "stevegekara04@gmail.com",
+          areaServed: "Worldwide",
+          availableLanguage: ["English", "Swahili"],
+        },
+      ],
+      potentialAction: {
+        "@type": "DonateAction",
+        target: `${siteUrl}/donate`,
+        description:
+          "Provide urgent financial assistance and donations to support young rural Kenyan runners with running shoes, nutrition, education, and competition travel via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com).",
       },
     },
     {
@@ -108,6 +164,8 @@ const jsonLd = {
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
       name: "Kerumbe Athletics Sports Club",
+      description:
+        "Official website of Kerumbe Athletics Sports Club. Discover our mission, student-athletes, and support our work through financial assistance and donations.",
       publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: "en-KE",
     },

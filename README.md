@@ -8,7 +8,7 @@ Official web platform for **Kerumbe Athletics Sports Club** (Kenya), built with 
 
 Kerumbe Athletics Sports Club, founded by Chairman **Steve Makwae Gekara**, discovers, mentors, and supports gifted young runners from rural primary and secondary schools across Kenya. The club provides running gear, nutrition, academic mentorship, and access to regional and national competitions (including the **Belgut Marathon - 2026** and **Kericho Marathon - 2026**), ensuring talent is nurtured without sacrificing academic education.
 
-- **Website:** [kerumbeathletics.co.ke](https://kerumbeathletics.co.ke)
+- **Website:** [www.kerumbeathletic.com](https://www.kerumbeathletic.com)
 - **Primary Base & Headquarters:** Nyamira County, Kenya
 - **Operational Reach:** Nyamira, Kisii, Kericho, and Bomet Counties (Kenyan Highlands & Rift Valley)
 - **M-Pesa Support:** `0790 700228` (Steve Makwae Gekara)
