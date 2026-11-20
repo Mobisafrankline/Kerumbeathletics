@@ -7,9 +7,18 @@ import BackToTop from "@/components/BackToTop";
 import { CONTACT_INFO } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Us & Donations Inquiries | Chairman Steve Makwae",
   description:
-    "Contact Kerumbe Athletics Sports Club. Reach Chairman Steve Makwae Gekara by phone, email, or through our contact form for sponsorships, partnerships, and inquiries.",
+    "Get in touch with Kerumbe Athletics Sports Club (Kierumba Athletic). Direct phone, WhatsApp, and M-Pesa line: +254 790 700228 (Chairman Steve Makwae Gekara). PayPal: stevegekara04@gmail.com. Based in Nyamira County, Kenya.",
+  keywords: [
+    "contact kierumba athletic",
+    "contact kerumbe athletics",
+    "steve makwae gekara phone",
+    "0790700228",
+    "stevegekara04@gmail.com",
+    "sponsor kerumbe athletics",
+  ],
+  alternates: { canonical: "https://www.kerumbeathletic.com/contact" },
 };
 
 const WAYS_TO_HELP = [

@@ -8,9 +8,18 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Us | Founding Story & Mission",
   description:
-    "Learn about Kerumbe Athletics Sports Club, founded in 2020 by Chairman Steve Makwae Gekara to empower rural Kenyan runners through coaching, gear, nutrition, and education.",
+    "Learn about Kerumbe Athletics Sports Club (also known as Kierumba Athletic), founded in 2020 by Chairman Steve Makwae Gekara in Nyamira County, Kenya. Discover how we empower rural school runners through coaching, gear, nutrition, and academic support.",
+  keywords: [
+    "kierumba athletic",
+    "kierumba athletics",
+    "about kerumbe athletics",
+    "steve makwae gekara",
+    "nyamira athletics club",
+    "rural kenya athletics",
+  ],
+  alternates: { canonical: "https://www.kerumbeathletic.com/about" },
 };
 
 const VALUES = [
@@ -45,10 +54,11 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-3.5 sm:space-y-4 text-muted text-sm sm:text-base leading-relaxed">
                 <p>
-                  Kerumbe Athletics Sports Club was founded in 2020 by{" "}
+                  Kerumbe Athletics Sports Club (widely recognized across the region as{" "}
+                  <strong className="text-charcoal-dark">Kierumba Athletic</strong>) was founded in 2020 by{" "}
                   <strong className="text-charcoal-dark">Chairman Steve Makwae Gekara</strong>,
-                  a passionate advocate for rural youth athletics in Kenya&apos;s Rift
-                  Valley region.
+                  a passionate advocate for rural youth athletics in Kenya&apos;s high-altitude
+                  Nyamira and Rift Valley regions.
                 </p>
                 <p>
                   Steve saw something that broke his heart and fired his spirit at the

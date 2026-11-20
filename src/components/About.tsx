@@ -63,7 +63,8 @@ export default function About() {
               <p>
                 Founded in 2020 by{" "}
                 <strong className="text-charcoal-dark">Chairman Steve Makwae Gekara</strong>,
-                Kerumbe Athletics Sports Club was born from a simple but powerful
+                Kerumbe Athletics Sports Club (widely known locally as{" "}
+                <strong className="text-charcoal-dark">Kierumba Athletic</strong>) was born from a simple but powerful
                 belief: that Kenya&apos;s greatest runners are hiding in its rural
                 primary and secondary schools, waiting only for the opportunity to
                 be discovered.

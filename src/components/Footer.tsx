@@ -171,9 +171,14 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="py-5">
         <div className="container-custom flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
-          <p className="text-gray-500 text-xs">
-            &copy; {year} Kerumbe Athletics Sports Club. All rights reserved.
-          </p>
+          <div>
+            <p className="text-gray-500 text-xs">
+              &copy; {year} Kerumbe Athletics Sports Club. All rights reserved.
+            </p>
+            <p className="text-gray-500 text-[11px] mt-0.5">
+              Also known as <span className="text-gray-400">Kierumba Athletic</span> / <span className="text-gray-400">Kerumba Athletics Sports Club</span>
+            </p>
+          </div>
           <p className="text-gray-500 text-xs">
             Nyamira County, Kenya &bull;{" "}
             <a href="mailto:stevegekara04@gmail.com" className="hover:text-red transition-colors">

@@ -8,9 +8,19 @@ import BackToTop from "@/components/BackToTop";
 import { STORIES, MILESTONES } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "Stories & Impact",
+  title: "Stories & Impact | Race Milestones & Community Updates",
   description:
-    "Read the impact stories of Kerumbe Athletics and how young Kenyan runners from rural schools are transforming their lives through sport and education.",
+    "Read the inspiring journeys of Kerumbe Athletics Sports Club (Kierumba Athletic) runners: morning workouts and breakfast at Koradrops Academy with Director Hon. Mrs. Hellen Chepkwony, Belgut Marathon 2026 triumphs, and classroom milestones.",
+  keywords: [
+    "kierumba athletic stories",
+    "kerumbe athletics news",
+    "koradrops academy training",
+    "hon mrs hellen chepkwony",
+    "belgut marathon 2026",
+    "kericho cross country 2026",
+    "nyamira youth runners impact",
+  ],
+  alternates: { canonical: "https://www.kerumbeathletic.com/stories" },
 };
 
 export default function StoriesPage() {

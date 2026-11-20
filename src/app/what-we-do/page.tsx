@@ -9,17 +9,25 @@ import BackToTop from "@/components/BackToTop";
 import { PROGRAMS } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "What We Do",
+  title: "What We Do | Holistic Athletics & Education Pillars",
   description:
-    "Discover the six pillars of Kerumbe Athletics: gear, coaching, academic support, mentorship, nutrition, and competition access for rural Kenyan runners.",
+    "Discover the six core pillars of Kerumbe Athletics Sports Club (Kierumba Athletic): equipment & running shoes, elite coaching, academic scholarships, youth mentorship, nutritional welfare, and championship competition access in Kenya.",
+  keywords: [
+    "kierumba athletic programs",
+    "kerumbe athletics what we do",
+    "kenya youth runners coaching",
+    "running shoes for rural athletes",
+    "academic sports sponsorship kenya",
+  ],
+  alternates: { canonical: "https://www.kerumbeathletic.com/what-we-do" },
 };
 
 const PILLAR_IMAGES = [
   { src: "/images/club-uniforms-kit.jpg", caption: "Official Club Uniform Kits, Bibs & Tracksuits" },
-  { src: "/images/athletes-track.jpg", caption: "Structured Daily Training" },
-  { src: "/images/kericho-college.jpg", caption: "Academic Mentorship" },
+  { src: "/images/koradrops-team-coach.jpg", caption: "Structured Daily Training at Koradrops Academy" },
+  { src: "/images/kericho-college.jpg", caption: "Academic Mentorship & Education First" },
   { src: "/images/belgut-kemboi-2026.jpg", caption: "Mentorship with Olympic Champion Ezekiel Kemboi" },
-  { src: "/images/team-meal.jpg", caption: "Athlete Recovery Nutrition" },
+  { src: "/images/koradrops-breakfast-athletes.jpg", caption: "Athlete Recovery Nutrition & Breakfast" },
   { src: "/images/belgut-finish-gantry.jpg", caption: "Championship Competition Access" },
 ];
 

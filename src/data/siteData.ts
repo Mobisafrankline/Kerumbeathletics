@@ -25,11 +25,14 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const HERO_SLIDES: string[] = [
+  "/images/koradrops-team-coach.jpg",
   "/images/belgut-finish-gantry.jpg",
   "/images/club-uniforms-kit.jpg",
+  "/images/koradrops-athletes-lineup.jpg",
   "/images/belgut-kemboi-2026.jpg",
   "/images/kericho-finish.jpg",
   "/images/athletes-track.jpg",
+  "/images/koradrops-breakfast-athletes.jpg",
   "/images/belgut-crowd-2026.jpg",
 ];
 
@@ -199,6 +202,20 @@ export const MILESTONES: Milestone[] = [
 
 export const STORIES: Story[] = [
   {
+    id: "koradrops-academy-training-breakfast",
+    title: "Morning Training & Breakfast Hospitality at Koradrops Academy",
+    category: "Community & Welfare",
+    date: "November 2026",
+    image: "/images/koradrops-team-coach.jpg",
+    summary:
+      "Young athletes make steady progress during morning training at Koradrops Academy playground, warmly welcomed with breakfast by School Director Hon. Mrs. Hellen Chepkwony.",
+    content: [
+      "The young athletes of Kerumbe Athletics Sports Club continue to make inspiring progress in their endurance, speed, and track discipline. In a memorable morning session, our athletes conducted light, focused workouts at the Koradrops Academy playground overseen by Coach and Chairman Steve Makwae Gekara.",
+      "The session received a special boost with the presence and warm hospitality of the Director of Koradrops Academy, Hon. Mrs. Hellen Chepkwony. Following the training drills on the pitch, every single athlete was served a warm, nutritious breakfast generously provided by Hon. Mrs. Chepkwony.",
+      "Grassroots community solidarity and school partnerships like this exemplify Kerumbe's holistic mission: equipping talented youth with coaching and running gear while prioritizing their daily nutritional welfare and classroom education.",
+    ],
+  },
+  {
     id: "belgut-marathon-2026",
     title: "Belgut Marathon - 2026: From Village Dirt Roads to Championship Medals",
     category: "Competition Milestone",
@@ -241,6 +258,32 @@ export const STORIES: Story[] = [
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
+  {
+    src: "/images/koradrops-team-coach.jpg",
+    alt: "Young runners and Chairman Steve Makwae at Koradrops Academy playground",
+    caption: "Team & Coach Steve Makwae at Koradrops Academy Playground",
+    category: "training",
+    large: true,
+  },
+  {
+    src: "/images/koradrops-breakfast-athletes.jpg",
+    alt: "Athletes enjoying breakfast provided by Director Hon. Mrs. Hellen Chepkwony",
+    caption: "Breakfast Hospitality Courtesy of Hon. Mrs. Hellen Chepkwony",
+    category: "community",
+    large: true,
+  },
+  {
+    src: "/images/koradrops-athletes-lineup.jpg",
+    alt: "Young student-athletes lined up outside Koradrops Academy with green hills in background",
+    caption: "Student-Athletes Cohort at Koradrops Academy",
+    category: "training",
+  },
+  {
+    src: "/images/koradrops-field-debrief.jpg",
+    alt: "Coach Steve Makwae and athletes sitting on the grass field for a cooldown debrief",
+    caption: "Post-Run Grass Field Cooldown & Mentorship Debrief",
+    category: "training",
+  },
   {
     src: "/images/club-uniforms-kit.jpg",
     alt: "Official Kerumbe Athletics Sports Club uniform kits, training bibs, caps and track jackets",

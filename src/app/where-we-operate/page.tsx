@@ -8,9 +8,18 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "Where We Operate",
+  title: "Where We Operate | Nyamira, Kisii, Kericho & Bomet",
   description:
-    "Kerumbe Athletics operates primarily in Nyamira County, Kenya, reaching athletes across rural primary and secondary schools.",
+    "Kerumbe Athletics Sports Club (Kierumba Athletic) operates high-altitude running camps and school partnerships based in Nyamira County, actively scouting and developing student-athletes across Kisii, Kericho, and Bomet Counties in Kenya.",
+  keywords: [
+    "kierumba athletic where we operate",
+    "kerumbe athletics locations",
+    "nyamira athletics training",
+    "kisii youth runners",
+    "kericho athletics camp",
+    "bomet high altitude running",
+  ],
+  alternates: { canonical: "https://www.kerumbeathletic.com/where-we-operate" },
 };
 
 export default function WhereWeOperatePage() {

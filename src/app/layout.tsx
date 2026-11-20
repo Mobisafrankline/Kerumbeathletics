@@ -31,14 +31,23 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   keywords: [
+    "kierumba athletic",
+    "kierumba athletics",
+    "kerumba athletic",
+    "kerumba athletics",
+    "kirumba athletic",
+    "kirumba athletics",
     "Kerumbe Athletics",
     "Kerumbe Athletics Sports Club",
+    "Kerumbe Athletic",
     "Steve Makwae Gekara",
     "Kenya athletics",
     "Kenyan runners",
     "rural athletics Kenya",
     "Nyamira athletics",
     "Nyamira County runners",
+    "Koradrops Academy",
+    "Hon Mrs Hellen Chepkwony",
     "Belgut Marathon",
     "Kericho Cross Country",
     "grassroots sports Kenya",
@@ -56,23 +65,39 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kerumbe Athletics Sports Club | Empowering Rural Champions in Kenya",
     description:
-      "Kerumbe Athletics Sports Club discovers, trains, and sponsors gifted young runners from rural schools in Nyamira County, Kenya while keeping education first. We urgently need financial assistance and donations to provide running gear, nutrition, school fees, and competition travel. Support our athletes via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com).",
+      "Kerumbe Athletics Sports Club (also known as Kierumba Athletic) discovers, trains, and sponsors gifted young runners from rural schools in Nyamira County, Kenya while keeping education first. We urgently need financial assistance and donations to provide running gear, nutrition, school fees, and competition travel. Support our athletes via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com).",
     url: siteUrl,
     siteName: "Kerumbe Athletics Sports Club",
     locale: "en_KE",
     type: "website",
     images: [
       {
-        url: "/images/club-uniforms-kit.jpg",
+        url: `${siteUrl}/images/og-share.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Kerumbe Athletics Sports Club (Kierumba Athletic) - Official Team & Chairman Steve Makwae",
+        type: "image/jpeg",
+      },
+      {
+        url: `${siteUrl}/images/koradrops-team-coach.jpg`,
+        width: 1200,
+        height: 800,
+        alt: "Young runners and Coach Steve Makwae at Koradrops Academy",
+        type: "image/jpeg",
+      },
+      {
+        url: `${siteUrl}/images/club-uniforms-kit.jpg`,
         width: 1200,
         height: 630,
         alt: "Official Kerumbe Athletics Sports Club team uniforms and kit collection",
+        type: "image/jpeg",
       },
       {
-        url: "/images/logo.png",
+        url: `${siteUrl}/images/logo.png`,
         width: 512,
         height: 512,
         alt: "Kerumbe Athletics Sports Club Official Logo",
+        type: "image/png",
       },
     ],
   },
@@ -80,8 +105,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kerumbe Athletics Sports Club | Financial Assistance & Donations Appeal",
     description:
-      "Empowering rural Kenyan student-athletes from Nyamira County. We urgently need financial assistance and donations for running shoes, nutrition, and school fees.",
-    images: ["/images/club-uniforms-kit.jpg"],
+      "Empowering rural Kenyan student-athletes from Nyamira County. We urgently need financial assistance and donations for running shoes, nutrition, and school fees via M-Pesa 0790 700228 or PayPal stevegekara04@gmail.com.",
+    images: [`${siteUrl}/images/og-share.jpg`],
   },
   robots: {
     index: true,
@@ -105,10 +130,22 @@ const jsonLd = {
       "@type": ["SportsOrganization", "NonprofitOrganization", "NGO"],
       "@id": `${siteUrl}/#organization`,
       name: "Kerumbe Athletics Sports Club",
-      alternateName: ["Kerumbe Athletics", "Kerumbe Sports Club"],
+      alternateName: [
+        "Kierumba Athletic",
+        "Kierumba Athletics",
+        "Kerumba Athletic",
+        "Kerumba Athletics",
+        "Kirumba Athletic",
+        "Kirumba Athletics",
+        "Kerumbe Athletics",
+        "Kerumbe Athletic Sports Club",
+        "Kerumbe Sports Club",
+      ],
       url: siteUrl,
       logo: `${siteUrl}/images/logo.png`,
       image: [
+        `${siteUrl}/images/og-share.jpg`,
+        `${siteUrl}/images/koradrops-team-coach.jpg`,
         `${siteUrl}/images/club-uniforms-kit.jpg`,
         `${siteUrl}/images/belgut-finish-gantry.jpg`,
         `${siteUrl}/images/logo.png`,
@@ -169,10 +206,74 @@ const jsonLd = {
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
       name: "Kerumbe Athletics Sports Club",
+      alternateName: "Kierumba Athletic",
       description:
-        "Official website of Kerumbe Athletics Sports Club. Discover our mission, student-athletes, and support our work through financial assistance and donations.",
+        "Official website of Kerumbe Athletics Sports Club (Kierumba Athletic). Discover our mission, student-athletes, and support our work through financial assistance and donations.",
       publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: "en-KE",
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}/#navigation`,
+      name: "Site Navigation",
+      itemListElement: [
+        {
+          "@type": "SiteNavigationElement",
+          position: 1,
+          name: "Home",
+          description: "Kerumbe Athletics Sports Club homepage, mission, and live news.",
+          url: `${siteUrl}/`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 2,
+          name: "About Us",
+          description: "Our founding story, Chairman Steve Makwae Gekara, and education-first philosophy.",
+          url: `${siteUrl}/about`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 3,
+          name: "What We Do",
+          description: "Youth athletics programs: gear, high-altitude coaching, school sponsorship, and welfare.",
+          url: `${siteUrl}/what-we-do`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 4,
+          name: "Where We Operate",
+          description: "Active training bases across Nyamira, Kisii, Kericho, and Bomet Counties.",
+          url: `${siteUrl}/where-we-operate`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 5,
+          name: "Stories & Impact",
+          description: "Impact stories from Belgut Marathon 2026, Kericho races, and Koradrops Academy training.",
+          url: `${siteUrl}/stories`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 6,
+          name: "Photo Gallery",
+          description: "Official kits, race finishes, morning training at Koradrops Academy, and team meals.",
+          url: `${siteUrl}/gallery`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 7,
+          name: "Ways to Give & Donations",
+          description: "Support rural athletes with running shoes, food, and school fees via M-Pesa 0790 700228 or PayPal stevegekara04@gmail.com.",
+          url: `${siteUrl}/donate`,
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 8,
+          name: "Contact Us",
+          description: "Direct contact info for Chairman Steve Makwae Gekara and partnership inquiries.",
+          url: `${siteUrl}/contact`,
+        },
+      ],
     },
   ],
 };
@@ -185,6 +286,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="canonical" href={siteUrl} />
+        {/* OpenGraph & Social Preview for WhatsApp, Facebook, Twitter */}
+        <meta property="og:title" content="Kerumbe Athletics Sports Club | Empowering Rural Champions in Kenya" />
+        <meta
+          property="og:description"
+          content="Kerumbe Athletics Sports Club (also known as Kierumba Athletic) discovers, trains, and sponsors gifted young runners from rural schools in Nyamira County, Kenya. Urgent financial assistance & donations needed via M-Pesa (0790 700228) or PayPal (stevegekara04@gmail.com)."
+        />
+        <meta property="og:url" content={`${siteUrl}/`} />
+        <meta property="og:site_name" content="Kerumbe Athletics Sports Club" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_KE" />
+        <meta property="og:image" content={`${siteUrl}/images/og-share.jpg`} />
+        <meta property="og:image:secure_url" content={`${siteUrl}/images/og-share.jpg`} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Kerumbe Athletics Sports Club (Kierumba Athletic) - Official Kit & Team" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kerumbe Athletics Sports Club | Financial Assistance & Donations Appeal" />
+        <meta
+          name="twitter:description"
+          content="Empowering rural Kenyan student-athletes from Nyamira County. Urgent financial assistance & donations needed for running shoes, nutrition, and school fees."
+        />
+        <meta name="twitter:image" content={`${siteUrl}/images/og-share.jpg`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
